@@ -16,7 +16,7 @@ export class AppComponent implements OnInit {
   sidebarOpen = true;
   menuItems: MenuItem[] = [
     {label: 'Executar Validações', icon: 'pi pi-fw pi-check-square', routerLink: '/executar'},
-    {label: 'Resultados / Estatísticas', icon: 'pi pi-fw pi-chart-bar', routerLink: '/resultados'},
+    {label: 'Resultados e Estatísticas', icon: 'pi pi-fw pi-chart-bar', routerLink: '/resultados'},
   ];
 
   constructor(

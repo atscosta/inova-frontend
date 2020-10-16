@@ -8,7 +8,7 @@ import {TipoJustica} from "./tipo-justica";
 })
 export class TiposJusticaService {
 
-  private apiUrl: string;
+  private readonly apiUrl: string;
 
   constructor(private http: HttpClient) {
     this.apiUrl = environment.apiUrl;
@@ -16,5 +16,9 @@ export class TiposJusticaService {
 
   findAll = () => {
     return this.http.get<TipoJustica[]>(`${this.apiUrl}/tipos-justica`);
+  }
+
+  findByCodigo = codigo => {
+    return this.http.get<TipoJustica>(`${this.apiUrl}/tipos-justica/${codigo}`);
   }
 }

@@ -1,5 +1,5 @@
 export interface TipoJustica {
-  id: string;
+  id?: string;
   codigo: string;
   descricao: string;
 }
