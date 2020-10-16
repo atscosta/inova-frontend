@@ -20,7 +20,7 @@ registerLocaleData(localePt, 'pt-BR', localePtExtra);
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
   ],
   imports: [
     AuthModule,
@@ -33,13 +33,15 @@ registerLocaleData(localePt, 'pt-BR', localePtExtra);
     InlineSVGModule.forRoot(),
     BreadcrumbModule,
     MenubarModule,
+    HttpClientModule
   ],
   providers: [
     {
       provide: LOCALE_ID,
       useValue: 'pt-BR'
-    }
+    },
   ],
+  exports: [],
   bootstrap: [AppComponent]
 })
 export class AppModule {

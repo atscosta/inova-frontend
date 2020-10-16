@@ -39,3 +39,23 @@ body .ui-button-secondary {
   border-color: $secondary !important;
   color: $light !important;
 }
+
+.special-card {
+  padding: 32px 18px;
+  margin: 9px 16px;
+  background-color: #263238;
+  text-align: center;
+  color: #eceff1;
+  box-shadow: 0 2px 2px 0 rgba(0,0,0,0.14), 0 3px 1px -2px rgba(0,0,0,0.12), 0 1px 5px 0 rgba(0,0,0,0.2);
+  font-size: 20px;
+  cursor: pointer;
+  transition: 0.5s ease;
+}
+
+.special-card:hover {
+  color: white;
+  background-color: #0D2029;
+  transform: scale(1.05);
+  transition: 0.5s ease;
+  font-size: 21px;
+}

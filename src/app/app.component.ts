@@ -3,8 +3,6 @@ import {MenuItem} from 'primeng/api';
 import {NavigationStart, Router} from '@angular/router';
 import {BreadcrumbService} from './layout/breadcrumb/breadcrumb.service';
 import {filter} from 'rxjs/operators';
-import {accessGranted, mainMenuItems} from './main-menu-items';
-import {InitialAuthService} from './auth/initial-auth.service';
 
 @Component({
   selector: 'app-root',
@@ -22,7 +20,6 @@ export class AppComponent implements OnInit {
   ];
 
   constructor(
-    private authService: InitialAuthService,
     private router: Router,
     private breadcrumbService: BreadcrumbService
   ) {
@@ -46,7 +43,6 @@ export class AppComponent implements OnInit {
   }
 
   ngOnInit() {
-    this.menuItems = mainMenuItems.filter(item => accessGranted(item, this.authService.roles()));
     if (window.matchMedia('(min-width: 992px)').matches) {
       this.sidebarOpen = true;
     }
