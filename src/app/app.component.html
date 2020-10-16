@@ -1,0 +1,45 @@
+<div id="app" [class.sidebar-open]="sidebarOpen">
+
+  <aside id="sidebar">
+    <div class="topbar">
+      <div class="tjpb">DESAFIO</div>
+      <button class="sidebar-toggler" (click)="toggleSidebar()">
+        <span class="tjpb-icon icon-menu"></span>
+      </button>
+    </div>
+    <div class="branding">
+      <div class="logo">
+        <img *ngIf="sidebarOpen" src="/assets/img/cnj-inova.png" width="100%" alt="logo" />
+        <img *ngIf="!sidebarOpen" src="/assets/img/cnj-inova-sq.png" width="100%" alt="logo" />
+      </div>
+    </div>
+    <app-main-menu [sidebarOpen]="sidebarOpen" [items]="menuItems"></app-main-menu>
+  </aside>
+
+  <div id="content">
+
+    <header id="header" class="navbar navbar-dark bg-dark">
+      <div class="navbar-expand" id="navbarNavAltMarkup">
+        <div class="navbar-nav">
+          <a class="nav-link" href="#"><i class="fa fa-info-circle" aria-hidden="true"></i>&nbsp;&nbsp;Ajuda</a>
+          <a class="nav-link" href="#"><i class="fa fa-cog" aria-hidden="true"></i>&nbsp;&nbsp;Configurações</a>
+        </div>
+      </div>
+    </header>
+
+    <main id="main-content" role="main" class="container-fluid">
+      <router-outlet></router-outlet>
+    </main>
+
+    <footer id="footer" class="container-fluid">
+      <div class="nome-versao">
+        {{title}} [v{{ version }}]
+      </div>
+      <div class="creditos">
+        <span class="desenvolvido">Desenvolvido pela equipe 26</span>
+      </div>
+    </footer>
+
+  </div>
+
+</div>

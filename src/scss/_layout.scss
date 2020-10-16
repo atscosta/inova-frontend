@@ -1,0 +1,109 @@
+
+html, body {
+  height: 100%;
+  position: relative;
+}
+
+#app {
+  min-width: $layout-min-width;
+  min-height: 100%;
+  display: flex;
+  flex-direction: column;
+  transition: padding-left .2s;
+
+  // Quando a sidebar estiver aberta (no mobile/xs), evita o scroll na página
+  // por baixo do menu
+  &.sidebar-open {
+    position: fixed;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+  }
+}
+
+#sidebar {
+  width: 100%;
+  position: fixed;
+  left: 0;
+  top: 0;
+  bottom: 0;
+  margin-left: -100%;
+  transition: margin-left .2s;
+  //overflow-y: auto;
+  //overflow-x: visible;
+}
+#app.sidebar-open #sidebar {
+  margin-left: 0;
+  z-index: 100;
+}
+
+#content {
+  flex: 1 0;
+  display: flex;
+  flex-flow: column nowrap;
+
+  #header {
+    height: $topbar-height;
+    position: fixed;
+    width: 100%;
+    top: 0;
+    flex: 0 0;
+  }
+  #main-content {
+    margin-top: $topbar-height;
+    flex: 1 0;
+  }
+  #footer {
+    flex: 0 0;
+  }
+}
+
+@include media-breakpoint-up(sm) {
+
+  #app {
+    padding-left: $sidebar-width-sm;
+
+    &.sidebar-open {
+      position: relative;
+      width: initial;
+      height: auto;
+      overflow: auto;
+    }
+  }
+
+  #sidebar {
+    margin-left: 0;
+    transition: width .2s;
+  }
+  #app:not(.sidebar-open) #sidebar {
+    width: $sidebar-width-sm;
+  }
+
+  #content {
+    #header {
+      position: relative;
+      justify-content: flex-end;
+    }
+    #main-content {
+      //margin-top: -$topbar-height;
+    }
+    #footer {
+    }
+  }
+
+}
+
+@include media-breakpoint-up(lg) {
+
+  #app.sidebar-open {
+    padding-left: $sidebar-width;
+  }
+
+  #content {
+    #main-content, #footer {
+      padding-left: $grid-gutter-width;
+      padding-right: $grid-gutter-width;
+    }
+  }
+
+}

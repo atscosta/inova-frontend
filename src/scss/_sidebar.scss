@@ -1,0 +1,224 @@
+
+#sidebar {
+  background: $sidebar-bg-color;
+
+  .topbar {
+    height: $topbar-height;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background: $sidebar-top-bg;
+    color: $sidebar-text-color;
+
+    .tjpb {
+      font-size: .875rem;
+      line-height: 1.1;
+      margin-left: 10px;
+      padding-left: 22px;
+      background-size: auto 22px;
+      white-space: nowrap;
+      overflow: hidden;
+    }
+    .sidebar-toggler {
+      align-self: stretch;
+      display: flex;
+      align-items: center;
+      cursor: pointer;
+      padding: 0 12px;
+      border: none;
+      background-color: transparent;
+      color: inherit;
+      &:hover, &:focus {
+        color: $sidebar-hover-color;
+      }
+      .tjpb-icon::before {
+        content: $icon-cancel;
+        padding-bottom: 1px;
+      }
+    }
+  }
+
+  .branding {
+    height: $branding-height;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 15px;
+    border-bottom: 1px solid rgba(255, 255, 255, .1);
+    .logo {
+      width: $logo-width;
+      height: auto;
+      svg {
+        max-width: 100%;
+        height: auto;
+      }
+    }
+  }
+
+  .main-navigation {
+    ul, li {
+      list-style: none;
+      margin: 0;
+      padding: 0;
+    }
+
+    .menu-title {
+      font-size: .9375rem;
+      padding: 8px $main-menu-padding-x;
+      margin: 0;
+      line-height: inherit;
+      font-weight: 600;
+      color: white; // @TODO: variável
+    }
+
+    li.menu-item {
+      position: relative;
+      color: $sidebar-text-color;
+
+      button {
+        border: none;
+        display: block;
+        padding: 8px $main-menu-padding-x;
+        color: inherit;
+        background-color: transparent;
+        font-size: .9375rem;
+        cursor: pointer;
+        width: 100%;
+        text-align: left;
+        transition: color .2s, background-color .2s;
+
+        &:hover, &:focus {
+          color: $sidebar-hover-color;
+          background-color: $sidebar-hover-bg;
+          outline: none;
+        }
+
+        .menu-item-icon {
+          display: inline-block;
+          width: 1.5em;
+          text-align: center;
+          margin-right: .25em;
+        }
+      }
+    }
+    li.menu-item.expanded {
+      background-color: $sidebar-menu-open-bg;
+    }
+
+    .menu-wrapper.depth-1 {
+      height: 0;
+      overflow: hidden;
+      transition: height .2s ease-out;
+      > ul.menu > li.menu-item > button {
+        padding-left: $main-menu-padding-x * 2;
+        &::before {
+          content: '▪';
+          font-size: .5em;
+          margin-right: 1em;
+          display: inline-block;
+          vertical-align: middle;
+          padding-bottom: .4em;
+        }
+      }
+    }
+  }
+}
+
+#app.sidebar-open {
+  .main-navigation {
+    .menu-title {
+      display: none;
+    }
+  }
+}
+
+@include media-breakpoint-up(sm) {
+
+  #app:not(.sidebar-open) #sidebar {
+
+    .topbar {
+      justify-content: center;
+      .tjpb {
+        display: none;
+      }
+      .sidebar-toggler {
+        .tjpb-icon::before {
+          content: $icon-menu;
+        }
+      }
+    }
+
+    .branding {
+      height: $branding-height-sm;
+      padding: 10px;
+      .logo {
+        width: $logo-width-sm;
+      }
+    }
+
+    .main-navigation {
+      .menu-wrapper.depth-0 {
+        > ul.menu {
+          > li.menu-item {
+            > button {
+              text-align: center;
+              position: relative;
+              .menu-item-icon {
+                font-size: 1.25em;
+                margin: 0;
+              }
+              .menu-item-label {
+                display: none;
+              }
+            }
+            .menu-wrapper {
+              display: none;
+              height: auto;
+              position: absolute;
+              top: 0;
+              left: $sidebar-width-sm;
+              width: $sidebar-width - $sidebar-width-sm;
+              background-color: darken($sidebar-bg-color, 5%);
+              .menu-item > button {
+                padding-left: $main-menu-padding-x;
+              }
+            }
+            &.expanded {
+              > button {
+                background-color: darken($sidebar-bg-color, 5%);
+                color: $sidebar-hover-color;
+              }
+              .menu-wrapper {
+                display: block;
+              }
+            }
+          }
+        }
+      }
+    }
+
+  }
+
+  #app.sidebar-open #sidebar {
+    width: $sidebar-width;
+    margin-left: 0;
+    box-shadow: 1px 0 5px rgba(0, 0, 0, .5);
+  }
+
+}
+
+@include media-breakpoint-up(lg) {
+
+  #app.sidebar-open #sidebar {
+    box-shadow: none;
+
+    .topbar {
+      .sidebar-toggler {
+        .tjpb-icon::before {
+          content: $icon-menu;
+        }
+      }
+    }
+  }
+
+}

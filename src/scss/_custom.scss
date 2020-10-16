@@ -1,0 +1,79 @@
+//
+// Customizações gerais (elementos básicos, componentes do Bootstrap e PrimeNG, etc.)
+//
+
+// Títulos
+
+h1, .h1, h2, .h2 {
+  font-weight: 300;
+}
+h5, .h5, h6, .h6 {
+  font-weight: 600;
+}
+
+@include media-breakpoint-up(sm) {
+  h1, .h1 { font-size: 2.2rem; }
+}
+
+@include media-breakpoint-up(md) {
+  h1, .h1 { font-size: 2.5rem; }
+}
+
+@include media-breakpoint-up(lg) {
+  h1, .h1 { font-size: 2.75rem; }
+  h2, .h2 { font-size: 2rem; }
+  h3, .h3 { font-size: 1.5rem; }
+  h4, .h4 { font-size: 1.25rem; }
+  h5, .h5 { font-size: 1.15rem; }
+  h6, .h6 { font-size: 1rem; }
+}
+
+// Buttons
+
+div:not(.btn-group) > .btn + .btn {
+  margin-left: .5em;
+}
+
+// Cards
+
+.card {
+  box-shadow: 0 1px 5px rgba(0, 0, 0, 0.1);
+  margin-bottom: $grid-gutter-width / 2;
+
+  .card-header {
+    background-color: white;
+    text-transform: uppercase;
+    font-size: 1rem;
+    font-weight: 600;
+    padding-top: 0.6rem;
+    padding-bottom: 0.6rem;
+  }
+
+  .card-body {
+    > table {
+      width: calc(100% + 2.5rem);
+      margin-left: -1.25rem;
+      margin-right: -1.25rem;
+
+      &:first-child {
+        margin-top: -1.25rem;
+      }
+      &:last-child {
+        margin-bottom: -0.5rem;
+      }
+
+      > thead > tr, > tbody > tr {
+        th:first-child, td:first-child {
+          padding-left: 1.25rem;
+        }
+        th:last-child, td:last-child {
+          padding-right: 1.25rem;
+        }
+      }
+    }
+  }
+
+  @include media-breakpoint-up(lg) {
+    margin-bottom: $grid-gutter-width;
+  }
+}

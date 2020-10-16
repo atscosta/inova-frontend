@@ -1,0 +1,41 @@
+@import url('https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,300i,400,400i,600,600i&display=swap');
+@import "scss/includes";
+@import "scss/bootstrap";
+@import "scss/layout";
+@import "scss/content";
+@import "scss/sidebar";
+@import "scss/custom";
+@import "~@fortawesome/fontawesome-free/css/all.min.css";
+
+li.role a[role=menuitem] {
+  background-color: #e0e0e0 !important;
+  cursor: auto;
+}
+
+.ui-progressbar {
+  height: 4px !important;
+}
+
+.ui-dropdown {
+  width: 100% !important;
+}
+
+.ui-fieldset, .ui-fieldset .ui-fieldset-legend {
+  width: auto !important;
+}
+
+body .pi {
+  font-size: 0.75em !important;
+}
+
+body .ui-button,
+body .ui-button-primary {
+  background-color: $primary !important;
+  border-color: $primary !important;
+}
+
+body .ui-button-secondary {
+  background-color: $secondary !important;
+  border-color: $secondary !important;
+  color: $light !important;
+}

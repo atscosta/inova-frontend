@@ -1,0 +1,35 @@
+//
+// Mixins locais
+//
+
+@mixin tjpb-icon-base {
+  font-family: 'tjpb-icons';
+  font-style: normal;
+  font-weight: normal;
+  speak: none;
+  line-height: 1em;
+  font-variant: normal;
+  text-transform: none;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+@mixin tjpb-icon-before($code) {
+  &::before {
+    content: $code;
+  }
+}
+
+@mixin tjpb-icon-after($code) {
+  &::after {
+    content: $code;
+  }
+}
+
+@mixin transition($speed) {
+  transition: $speed;
+}
+
+@mixin border-radius($radius) {
+  border-radius: $radius;
+}
