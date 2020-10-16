@@ -1,5 +1,6 @@
-import {Component} from '@angular/core';
+import {Component, EventEmitter, Output} from '@angular/core';
 import {TiposJusticaService} from "./tipos-justica.service";
+import {TipoJustica} from "./tipo-justica";
 
 @Component({
   selector: 'app-tipos-justica',
@@ -7,6 +8,9 @@ import {TiposJusticaService} from "./tipos-justica.service";
   styleUrls: ['./tipos-justica.component.scss']
 })
 export class TiposJusticaComponent {
+
+  @Output()
+  onClick = new EventEmitter<TipoJustica>();
 
   tiposJustica$ = this.tiposJusticaService.findAll();
 
