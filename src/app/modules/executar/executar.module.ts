@@ -19,8 +19,6 @@ import {BreadcrumbModule} from "../breadcrumb/breadcrumb.module";
     TiposJusticaModule,
     RouterModule,
     TribunaisModule,
-    BreadcrumbModule,
-    BreadcrumbModule
   ]
 })
 export class ExecutarModule {
