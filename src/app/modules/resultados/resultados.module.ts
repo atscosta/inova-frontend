@@ -8,10 +8,14 @@ import {RouterModule} from "@angular/router";
 import {TribunaisComponent} from './tribunais/tribunais.component';
 import {TribunaisModule} from "../tribunais/tribunais.module";
 import {BreadcrumbModule} from "../breadcrumb/breadcrumb.module";
+import {UnidadesComponent} from './unidades/unidades.component';
+import {UnidadesJudiciariasModule} from "../unidades-judiciarias/unidades-judiciarias.module";
+import {PanelModule} from "primeng/panel";
+import {ChartsModule} from "ng2-charts";
 
 
 @NgModule({
-  declarations: [ResultadosComponent, TribunaisComponent],
+  declarations: [ResultadosComponent, TribunaisComponent, UnidadesComponent],
   imports: [
     CommonModule,
     ResultadosRoutingModule,
@@ -22,6 +26,9 @@ import {BreadcrumbModule} from "../breadcrumb/breadcrumb.module";
     BreadcrumbModule,
     BreadcrumbModule,
     BreadcrumbModule,
+    UnidadesJudiciariasModule,
+    PanelModule,
+    ChartsModule
   ]
 })
 export class ResultadosModule {

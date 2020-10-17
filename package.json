@@ -30,6 +30,7 @@
     "chart.js": "^2.9.3",
     "core-js": "^3.6.5",
     "ng-inline-svg": "^10.1.0",
+    "ng2-charts": "^2.4.2",
     "ngx-mask": "^9.1.2",
     "primeicons": "^4.0.0",
     "primeng": "^10.0.3",
