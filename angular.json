@@ -31,10 +31,12 @@
               "src/styles.scss",
               "src/assets/tjpb-icons/css/tjpb-icons.css",
               "node_modules/primeng/resources/primeng.min.css",
-              "node_modules/primeng/resources/themes/luna-blue/theme.css",
+              "node_modules/primeng/resources/themes/saga-blue/theme.css",
               "node_modules/primeicons/primeicons.css"
             ],
-            "scripts": []
+            "scripts": [
+              "node_modules/chart.js/dist/Chart.min.js"
+            ]
           },
           "configurations": {
             "desenvolvimento": {

@@ -1,7 +1,8 @@
 import {Component, OnInit} from '@angular/core';
 import {Observable} from "rxjs";
-import {ActivatedRoute} from "@angular/router";
+import {ActivatedRoute, Router} from "@angular/router";
 import {map} from "rxjs/operators";
+import {Tribunal} from "../../tribunais/tribunal";
 
 @Component({
   selector: 'app-resultados-tribunais',
@@ -12,11 +13,15 @@ export class TribunaisComponent implements OnInit {
 
   codigoTipoJustica$: Observable<string>;
 
-  constructor(private route: ActivatedRoute) {
+  constructor(private route: ActivatedRoute, private router: Router) {
   }
 
   ngOnInit(): void {
     this.codigoTipoJustica$ = this.route.params
       .pipe(map(params => params['codigoTipoJustica']));
+  }
+
+  onCLick(trib: Tribunal) {
+    this.router.navigate(['/resultados', this.route.snapshot.paramMap.get('codigoTipoJustica'), trib.codigo]);
   }
 }

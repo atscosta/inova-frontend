@@ -15,6 +15,7 @@ import localePtExtra from '@angular/common/locales/extra/pt';
 import {BreadcrumbModule} from 'primeng/breadcrumb';
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 import {MenubarModule} from 'primeng/menubar';
+import {ChartsModule} from "ng2-charts";
 
 registerLocaleData(localePt, 'pt-BR', localePtExtra);
 
@@ -33,7 +34,8 @@ registerLocaleData(localePt, 'pt-BR', localePtExtra);
     InlineSVGModule.forRoot(),
     BreadcrumbModule,
     MenubarModule,
-    HttpClientModule
+    HttpClientModule,
+    ChartsModule
   ],
   providers: [
     {
