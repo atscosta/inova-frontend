@@ -1,12 +1,12 @@
 import {NgModule} from '@angular/core';
 import {CommonModule} from '@angular/common';
-import {TiposJusticaComponent} from "./tipos-justica.component";
+import {NavTiposJusticaComponent} from "./nav-tipos-justica/nav-tipos-justica.component";
 import {TiposJusticaService} from "./tipos-justica.service";
 
 
 @NgModule({
   declarations: [
-    TiposJusticaComponent
+    NavTiposJusticaComponent
   ],
   imports: [
     CommonModule
@@ -15,7 +15,7 @@ import {TiposJusticaService} from "./tipos-justica.service";
     TiposJusticaService
   ],
   exports: [
-    TiposJusticaComponent
+    NavTiposJusticaComponent
   ]
 })
 export class TiposJusticaModule {

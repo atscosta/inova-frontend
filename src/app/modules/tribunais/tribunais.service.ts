@@ -14,6 +14,10 @@ export class TribunaisService {
     this.apiUrl = environment.apiUrl;
   }
 
+  findByCodigo = codigo => {
+    return this.http.get<Tribunal>(`${this.apiUrl}/tribunais/${codigo}`);
+  }
+
   findByCodigoJustica = codigoJustica => {
     let params = new HttpParams().append('codigoJustica', codigoJustica);
     return this.http.get<Tribunal[]>(`${this.apiUrl}/tribunais`, {params});

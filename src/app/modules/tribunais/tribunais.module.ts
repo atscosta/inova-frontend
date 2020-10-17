@@ -1,12 +1,12 @@
 import {NgModule} from '@angular/core';
 import {CommonModule} from '@angular/common';
 import {TribunaisService} from "./tribunais.service";
-import {TribunaisComponent} from './tribunais.component';
+import {NavTribunaisComponent} from './nav-tribunais/nav-tribunais.component';
 import {BreadcrumbModule} from "../breadcrumb/breadcrumb.module";
 
 
 @NgModule({
-  declarations: [TribunaisComponent],
+  declarations: [NavTribunaisComponent],
   imports: [
     CommonModule,
     BreadcrumbModule
@@ -14,7 +14,7 @@ import {BreadcrumbModule} from "../breadcrumb/breadcrumb.module";
   providers: [
     TribunaisService
   ],
-  exports: [TribunaisComponent]
+  exports: [NavTribunaisComponent]
 })
 export class TribunaisModule {
 }

@@ -4,12 +4,8 @@ import {RouterModule, Routes} from '@angular/router';
 
 const routes: Routes = [
   {
-    path: 'executar',
-    loadChildren: () => import('./modules/executar/executar.module').then(m => m.ExecutarModule),
-  },
-  {
-    path: 'resultados',
-    loadChildren: () => import('./modules/resultados/resultados.module').then(m => m.ResultadosModule),
+    path: 'tipos-justica',
+    loadChildren: () => import('./modules/navegacao/navegacao.module').then(m => m.NavegacaoModule),
   }
 ];
 

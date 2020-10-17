@@ -3,11 +3,11 @@ import {TipoJustica} from "../../tipos-justica/tipo-justica";
 import {Router} from "@angular/router";
 
 @Component({
-  selector: 'app-resultados',
-  templateUrl: './resultados.component.html',
-  styleUrls: ['./resultados.component.scss']
+  selector: 'tipos-justica',
+  templateUrl: './tipos-justica.component.html',
+  styleUrls: ['./tipos-justica.component.scss']
 })
-export class ResultadosComponent implements OnInit {
+export class TiposJusticaComponent implements OnInit {
 
   breadcrumbItens = [
     {label: 'Resultados e Estatísticas', link: null},
@@ -20,6 +20,6 @@ export class ResultadosComponent implements OnInit {
   }
 
   onClick(tj: TipoJustica) {
-    this.router.navigate(['/resultados', tj.codigo]);
+    this.router.navigate(['/tipos-justica', tj.codigo, 'tribunais']);
   }
 }
