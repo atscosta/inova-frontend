@@ -1,16 +1,16 @@
 import {Component, EventEmitter, Input, OnInit, Output} from '@angular/core';
-import {TribunaisService} from "./tribunais.service";
+import {TribunaisService} from "../tribunais.service";
 import {Observable} from "rxjs";
-import {Tribunal} from "./tribunal";
+import {Tribunal} from "../tribunal";
 import {map} from "rxjs/operators";
-import {TiposJusticaService} from "../tipos-justica/tipos-justica.service";
+import {TiposJusticaService} from "../../tipos-justica/tipos-justica.service";
 
 @Component({
   selector: 'app-tribunais',
-  templateUrl: './tribunais.component.html',
-  styleUrls: ['./tribunais.component.scss']
+  templateUrl: './nav-tribunais.component.html',
+  styleUrls: ['./nav-tribunais.component.scss']
 })
-export class TribunaisComponent implements OnInit {
+export class NavTribunaisComponent implements OnInit {
 
   @Input()
   rootLabel: string;

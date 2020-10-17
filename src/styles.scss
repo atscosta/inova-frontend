@@ -28,16 +28,24 @@ body .pi {
   font-size: 0.75em !important;
 }
 
+body .p-button,
 body .ui-button,
 body .ui-button-primary {
-  background-color: $primary !important;
-  border-color: $primary !important;
+  background-color: $sidebar-bg-color !important;
+  border-color: $sidebar-bg-color !important;
 }
 
+body .p-button-secondary,
 body .ui-button-secondary {
   background-color: $secondary !important;
   border-color: $secondary !important;
   color: $light !important;
+}
+
+body .p-button-outlined {
+  background-color: #eee !important;
+  color: $primary !important;
+  border-color: $primary !important;
 }
 
 .special-card {
@@ -68,6 +76,20 @@ label {
   font-weight: bold;
 }
 
-.chart-conteiner-60 {
-  width: 60% !important;
+.progressBarSuccess .p-progressbar .p-progressbar-value {
+  background: #81c784 !important;
+}
+
+.progressBarWarning .p-progressbar .p-progressbar-value {
+  background: #fff176 !important;
+}
+
+.progressBarDanger .p-progressbar .p-progressbar-value {
+  background: #e57373 !important;
+}
+
+.p-button.btn-action {
+  background-color: #cfd8dc !important;
+  color: $sidebar-bg-color !important;
+  border-color: #cfd8dc !important;
 }
