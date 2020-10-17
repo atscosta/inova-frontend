@@ -45,10 +45,12 @@ export class UnidadesComponent implements OnInit {
         tap(unidadesJudiciarias => {
           this.tiposUnidades = distinct(unidadesJudiciarias.map(uj => uj.tipoUnidade));
           this.classificacoes = distinct(unidadesJudiciarias.map(uj => uj.classificacaoUnidade));
+        }),
+        map(this.aplicarFiltros),
+        tap(unidadesJudiciarias => {
           this.numTotal = unidadesJudiciarias.length;
           this.loading = false;
         }),
-        map(this.aplicarFiltros),
         map(this.paginate),
       );
   }
