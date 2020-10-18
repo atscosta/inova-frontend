@@ -1,7 +1,7 @@
 import {Component, EventEmitter, Input, OnInit, Output} from '@angular/core';
 import {ClassificacaoUnidade, TipoUnidade} from "../unidade-judiciaria";
 import {ActivatedRoute} from "@angular/router";
-import {map, tap} from "rxjs/operators";
+import {map} from "rxjs/operators";
 import {Observable} from "rxjs";
 
 @Component({
@@ -38,9 +38,7 @@ export class CardFiltrosUnidadeJudiciariaComponent implements OnInit {
 
   ngOnInit(): void {
     this.codigoTribunal$ = this.route.params
-      .pipe(
-        map(params => params['codigoTribunal']),
-        tap(codigoTribunal => console.log('>>> codigoTribunal', codigoTribunal)));
+      .pipe(map(params => params['codigoTribunal']));
   }
 
   filtroTipoUnidadeChanged($event: any) {

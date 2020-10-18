@@ -18,8 +18,7 @@ import {CardModule} from "primeng/card";
 import {InputTextModule} from "primeng/inputtext";
 import {FormsModule} from "@angular/forms";
 import {DropdownModule} from "primeng/dropdown";
-import {PaginatorModule} from "primeng/paginator";
-
+import {PaginatorModule} from "../paginator/paginator.module";
 
 @NgModule({
   declarations: [
@@ -46,7 +45,7 @@ import {PaginatorModule} from "primeng/paginator";
     InputTextModule,
     FormsModule,
     DropdownModule,
-    PaginatorModule
+    PaginatorModule,
   ]
 })
 export class NavegacaoModule {

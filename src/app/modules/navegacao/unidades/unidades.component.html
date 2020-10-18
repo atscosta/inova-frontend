@@ -11,8 +11,13 @@
 
 <p-progressBar *ngIf="loading" mode="indeterminate" [style]="{'height': '6px'}"></p-progressBar>
 
-<div class="row">
+<div class="row mt-4">
   <div *ngFor="let uj of unidadesJudiciarias$ | async" class="col-sm-12 col-md-4 my-2">
     <app-panel-unidade-judiciaria [unidadeJudiciaria]="uj"></app-panel-unidade-judiciaria>
   </div>
 </div>
+
+<hr class="my-4">
+
+<app-paginator [numTotal]="numTotal" [pageSize]="pageSize" [currentPage]="currentPage"
+  (onChange)="pageChange($event)"></app-paginator>
