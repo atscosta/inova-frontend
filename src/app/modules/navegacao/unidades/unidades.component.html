@@ -1,6 +1,8 @@
 <h1><i class="pi pi-chart-bar"></i> Unidades Judiciárias</h1>
 <hr>
 
+<app-breadcrumb-navegacao></app-breadcrumb-navegacao>
+
 <app-card-filtros-unidade-judiciaria
   [tiposUnidades]="tiposUnidades"
   [classificacoes]="classificacoes"
@@ -20,4 +22,4 @@
 <hr class="my-4">
 
 <app-paginator [numTotal]="numTotal" [pageSize]="pageSize" [currentPage]="currentPage"
-  (onChange)="pageChange($event)"></app-paginator>
+               (onChange)="pageChange($event)"></app-paginator>

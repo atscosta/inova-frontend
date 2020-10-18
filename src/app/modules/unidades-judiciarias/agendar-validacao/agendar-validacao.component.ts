@@ -20,4 +20,7 @@ export class AgendarValidacaoComponent implements OnInit {
   ngOnInit(): void {
   }
 
+  resetDate() {
+    this.dataAgendamento = new Date();
+  }
 }
