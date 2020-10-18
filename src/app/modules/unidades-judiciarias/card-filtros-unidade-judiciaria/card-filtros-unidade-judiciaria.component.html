@@ -1,0 +1,22 @@
+<p-card *ngIf="tiposUnidades && classificacoes" header="Consultar Unidades Judiciárias">
+  <div class="ui-grid ui-grid-responsive ui-fluid">
+    <div class="row">
+      <div class="col-sm-12 col-md-4">
+        <app-input-tribunal [codigoTribunal]="codigoTribunal$ | async"></app-input-tribunal>
+      </div>
+      <div class="col-sm-12 col-md-4">
+        <label style="display: block">Tipo de Unidade</label>
+        <p-dropdown [options]="tiposUnidades" [(ngModel)]="filtros.tipoUnidade" placeholder="Selecione"
+                    optionLabel="descricao" [showClear]="true" [style]="{'width':'100%'}"
+                    (ngModelChange)="filtroTipoUnidadeChanged($event)"></p-dropdown>
+      </div>
+      <div class="col-sm-12 col-md-4">
+        <label style="display: block">Classificação</label>
+        <p-dropdown [options]="classificacoes" [(ngModel)]="filtros.classificacao" placeholder="Selecione"
+                    optionLabel="descricao" [showClear]="true" [style]="{'width':'100%'}"
+                    (ngModelChange)="filtroClassificacaoChanged($event)"></p-dropdown>
+      </div>
+    </div>
+  </div>
+  <p *ngIf="!loading && numTotal" class="mt-4">Encontradas {{ numTotal }} unidades judiciárias.</p>
+</p-card>

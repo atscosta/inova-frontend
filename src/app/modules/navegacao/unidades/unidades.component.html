@@ -1,34 +1,18 @@
 <h1><i class="pi pi-chart-bar"></i> Unidades Judiciárias</h1>
 <hr>
 
-<p-card *ngIf="tiposUnidades && classificacoes" header="Consultar Unidades Judiciárias">
+<app-card-filtros-unidade-judiciaria
+  [tiposUnidades]="tiposUnidades"
+  [classificacoes]="classificacoes"
+  [loading]="loading"
+  [numTotal]="numTotal"
+  (filtrosChanged)="filtrosChanged($event)">
+</app-card-filtros-unidade-judiciaria>
 
-  <div class="ui-grid ui-grid-responsive ui-fluid">
-    <div class="row">
-      <div class="col">
-        <app-input-tribunal *ngIf="codigoTribunal" [codigoTribunal]="codigoTribunal"></app-input-tribunal>
-      </div>
-      <div class="col">
-        <label style="display: block">Tipo de Unidade</label>
-        <p-dropdown [options]="tiposUnidades" [(ngModel)]="filtros.tipoUnidade" placeholder="Selecione"
-                    optionLabel="descricao" [showClear]="true" [style]="{'width':'100%'}"
-                    (ngModelChange)="filtroTipoUnidadeChanged($event)"></p-dropdown>
-      </div>
-      <div class="col">
-        <label style="display: block">Classificação</label>
-        <p-dropdown [options]="classificacoes" [(ngModel)]="filtros.classificacao" placeholder="Selecione"
-                    optionLabel="descricao" [showClear]="true" [style]="{'width':'100%'}"
-                    (ngModelChange)="filtroClassificacaoChanged($event)"></p-dropdown>
-      </div>
-    </div>
-  </div>
-
-  <p *ngIf="!loading && numTotal" class="mt-4">Encontradas {{ numTotal }} unidades judiciárias.</p>
-</p-card>
 <p-progressBar *ngIf="loading" mode="indeterminate" [style]="{'height': '6px'}"></p-progressBar>
 
-<div class="p-grid">
-  <div *ngFor="let uj of unidadesJudiciarias$ | async" class="p-col-12 my-2">
+<div class="row">
+  <div *ngFor="let uj of unidadesJudiciarias$ | async" class="col-sm-12 col-md-4 my-2">
     <app-panel-unidade-judiciaria [unidadeJudiciaria]="uj"></app-panel-unidade-judiciaria>
   </div>
 </div>

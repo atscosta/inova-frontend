@@ -6,20 +6,32 @@ import {PanelUnidadeJudiciariaComponent} from './panel-unidade-judiciaria/panel-
 import {PanelModule} from "primeng/panel";
 import {ProgressBarModule} from "primeng/progressbar";
 import {ButtonModule} from "primeng/button";
+import { CardFiltrosUnidadeJudiciariaComponent } from './card-filtros-unidade-judiciaria/card-filtros-unidade-judiciaria.component';
+import {TribunaisModule} from "../tribunais/tribunais.module";
+import {CardModule} from "primeng/card";
+import {DropdownModule} from "primeng/dropdown";
+import {FormsModule} from "@angular/forms";
+import { ResultadosValidacoesComponent } from './resultados-validacoes/resultados-validacoes.component';
+import {ChartModule} from "primeng/chart";
 
 
 @NgModule({
-  declarations: [UnidadeJudiciariaPipe, PanelUnidadeJudiciariaComponent],
+  declarations: [UnidadeJudiciariaPipe, PanelUnidadeJudiciariaComponent, CardFiltrosUnidadeJudiciariaComponent, ResultadosValidacoesComponent],
   imports: [
     CommonModule,
     PanelModule,
     ProgressBarModule,
     ButtonModule,
+    TribunaisModule,
+    CardModule,
+    DropdownModule,
+    FormsModule,
+    ChartModule,
   ],
   providers: [
     UnidadesJudiciariasService
   ],
-  exports: [UnidadeJudiciariaPipe, PanelUnidadeJudiciariaComponent]
+  exports: [UnidadeJudiciariaPipe, PanelUnidadeJudiciariaComponent, CardFiltrosUnidadeJudiciariaComponent]
 })
 export class UnidadesJudiciariasModule {
 }

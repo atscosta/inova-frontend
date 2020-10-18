@@ -21,7 +21,7 @@ export class UnidadesComponent implements OnInit {
 
   numTotal: number;
   currentPage = 0;
-  pageSize = 10;
+  pageSize = 12;
   loading = false;
 
   filtros = {
@@ -60,22 +60,20 @@ export class UnidadesComponent implements OnInit {
       let firstElement = this.currentPage * this.pageSize;
       return index >= firstElement && index < (firstElement + this.pageSize);
     });
+
   private aplicarFiltros = (unidadesJudiciarias: UnidadeJudiciaria[]) => unidadesJudiciarias
     .filter(uj => {
       return (!this.filtros.tipoUnidade || this.filtros.tipoUnidade.codigo === uj.tipoUnidade.codigo) &&
         (!this.filtros.classificacao || this.filtros.classificacao.codigo === uj.classificacaoUnidade.codigo);
     });
 
-  filtroTipoUnidadeChanged($event: any) {
-    this.ngOnInit();
-  }
-
-  filtroClassificacaoChanged($event: any) {
-    this.ngOnInit();
-  }
-
   pageChange(page: number) {
     this.currentPage = page;
+    this.ngOnInit();
+  }
+
+  filtrosChanged(filtros: any) {
+    this.filtros = filtros;
     this.ngOnInit();
   }
 }

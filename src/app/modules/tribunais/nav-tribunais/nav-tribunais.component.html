@@ -1,8 +1,10 @@
 <h2>Escolha o Tribunal</h2>
 
+<p-progressBar *ngIf="loading" mode="indeterminate" [style]="{'height': '6px'}"></p-progressBar>
+
 <div class="row">
   <div *ngFor="let trib of tribunais$ | async" class="special-card col-sm-12 col-md-6 col-lg-4 col-xl-3"
        (click)="onClick.emit(trib)">
-    {{ trib.descricao }}
+    {{ trib.sigla }}
   </div>
 </div>

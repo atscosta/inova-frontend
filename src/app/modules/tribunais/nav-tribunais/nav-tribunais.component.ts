@@ -2,8 +2,7 @@ import {Component, EventEmitter, Input, OnInit, Output} from '@angular/core';
 import {TribunaisService} from "../tribunais.service";
 import {Observable} from "rxjs";
 import {Tribunal} from "../tribunal";
-import {map} from "rxjs/operators";
-import {TiposJusticaService} from "../../tipos-justica/tipos-justica.service";
+import {tap} from "rxjs/operators";
 
 @Component({
   selector: 'app-tribunais',
@@ -16,9 +15,6 @@ export class NavTribunaisComponent implements OnInit {
   rootLabel: string;
 
   @Input()
-  rootLink: string;
-
-  @Input()
   codigoJustica: string;
 
   @Output()
@@ -26,18 +22,14 @@ export class NavTribunaisComponent implements OnInit {
 
   tribunais$: Observable<Tribunal[]>;
 
-  breadcrumbItens$: Observable<any>;
+  loading = false;
 
-  constructor(private tribunaisService: TribunaisService,
-              private tiposJusticaService: TiposJusticaService) {
+  constructor(private tribunaisService: TribunaisService) {
   }
 
   ngOnInit(): void {
-    this.tribunais$ = this.tribunaisService.findByCodigoJustica(this.codigoJustica);
-    this.breadcrumbItens$ = this.tiposJusticaService.findByCodigo(this.codigoJustica)
-      .pipe(map(tipoJustica => [
-        {label: this.rootLabel, link: this.rootLink},
-        {label: tipoJustica.descricao, link: [this.rootLink, tipoJustica.codigo]}
-      ]));
+    this.loading = true;
+    this.tribunais$ = this.tribunaisService.findByCodigoJustica(this.codigoJustica)
+      .pipe(tap(() => this.loading = false));
   }
 }

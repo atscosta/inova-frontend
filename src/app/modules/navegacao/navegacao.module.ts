@@ -15,9 +15,6 @@ import {ProgressBarModule} from 'primeng/progressbar';
 import {ChartModule} from "primeng/chart";
 import {ButtonModule} from "primeng/button";
 import {CardModule} from "primeng/card";
-import {InputTribunalComponent} from './unidades/input-tribunal/input-tribunal.component';
-import {SelectTipoUnidadeComponent} from './unidades/select-tipo-unidade/select-tipo-unidade.component';
-import {SelectClassificacaoComponent} from './unidades/select-classificacao/select-classificacao.component';
 import {InputTextModule} from "primeng/inputtext";
 import {FormsModule} from "@angular/forms";
 import {DropdownModule} from "primeng/dropdown";
@@ -29,9 +26,6 @@ import {PaginatorModule} from "primeng/paginator";
     TiposJusticaComponent,
     TribunaisComponent,
     UnidadesComponent,
-    InputTribunalComponent,
-    SelectTipoUnidadeComponent,
-    SelectClassificacaoComponent
   ],
   imports: [
     CommonModule,
