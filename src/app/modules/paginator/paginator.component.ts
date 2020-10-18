@@ -5,7 +5,7 @@ import {Component, EventEmitter, Input, OnInit, Output} from '@angular/core';
   templateUrl: './paginator.component.html',
   styleUrls: ['./paginator.component.scss']
 })
-export class PaginatorComponent implements OnInit {
+export class PaginatorComponent {
 
   @Input()
   numTotal: any;
@@ -18,13 +18,6 @@ export class PaginatorComponent implements OnInit {
 
   @Output()
   onChange = new EventEmitter<any>();
-
-  constructor() {
-  }
-
-  ngOnInit(): void {
-    console.log('paginator')
-  }
 
   getNumPages() {
     return Math.ceil(this.numTotal / this.pageSize);

@@ -1,7 +1,8 @@
 <p-panel class="painel-unidade-judiciaria" [header]="unidadeJudiciaria | unidadeJudiciaria">
 
   <p class="mb-0"><small><strong>Tipo de Unidade:</strong> {{ unidadeJudiciaria.tipoUnidade.descricao }}</small></p>
-  <p class="mb-0"><small><strong>Classificação:</strong> {{ unidadeJudiciaria.classificacaoUnidade.descricao }}</small></p>
+  <p class="mb-0"><small><strong>Classificação:</strong> {{ unidadeJudiciaria.classificacaoUnidade.descricao }}</small>
+  </p>
 
   <app-resultados-validacoes [unidadeJudiciaria]="unidadeJudiciaria"></app-resultados-validacoes>
 
@@ -9,7 +10,8 @@
     <div class="row justify-content-center">
       <div class="col-xs-12 col-sm-6 my-2">
         <button pButton type="button" label="Iniciar/agendar validações" icon="pi pi-play"
-                class="p-button-raised p-button-sm btn-action" style="width: 100%"></button>
+                class="p-button-raised p-button-sm btn-action" style="width: 100%"
+                (click)="showModalAgendarValidacao = true"></button>
       </div>
       <div class="col-xs-12 col-sm-6 my-2">
         <button pButton type="button" label="Detalhar processos" icon="pi pi-search"
@@ -18,3 +20,8 @@
     </div>
   </p-footer>
 </p-panel>
+
+<p-dialog *ngIf="showModalAgendarValidacao" header="Iniciar/Agendar validações" [(visible)]="showModalAgendarValidacao"
+          [modal]="true" [style]="{width: '480px'}" [baseZIndex]="10" [draggable]="false" [resizable]="false">
+  <app-agendar-validacao [unidadeJudiciaria]="unidadeJudiciaria"></app-agendar-validacao>
+</p-dialog>
