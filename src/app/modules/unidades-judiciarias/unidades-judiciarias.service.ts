@@ -14,6 +14,10 @@ export class UnidadesJudiciariasService {
     this.apiUrl = environment.apiUrl;
   }
 
+  findByCodigo = codigo => {
+    return this.http.get<UnidadeJudiciaria>(`${this.apiUrl}/unidades-judiciarias/${codigo}`);
+  };
+
   findByCodigoTribunal = codigoTribunal => {
     const params = new HttpParams().append('codigoTribunal', codigoTribunal);
     return this.http.get<UnidadeJudiciaria[]>(`${this.apiUrl}/unidades-judiciarias`, {params});

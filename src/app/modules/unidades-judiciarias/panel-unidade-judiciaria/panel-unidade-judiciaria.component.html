@@ -1,55 +1,27 @@
 <p-panel class="painel-unidade-judiciaria" [header]="unidadeJudiciaria | unidadeJudiciaria">
-  <div class="row">
-    <div class="col">
-      <label>Tipo de Unidade</label>
-      <p>{{ unidadeJudiciaria.tipoUnidade.descricao }}</p>
-    </div>
-    <div class="col">
-      <label>Classificação</label>
-      <p>{{ unidadeJudiciaria.classificacaoUnidade.descricao }}</p>
-    </div>
-  </div>
-  <div class="row">
-    <div class="col-md-2">
-      <label>Estoque</label>
-      <p>{{ unidadeJudiciaria.estoque }}</p>
-    </div>
-    <div class="col">
-      <label>Taxa de Congestionamento Líquida</label>
-      <p-progressBar
-        [value]="unidadeJudiciaria.taxaCongestionamentoLiquida"
-        [ngClass]="{
-              progressBarDanger: unidadeJudiciaria.taxaCongestionamentoLiquida >= 70,
-              progressBarWarning: unidadeJudiciaria.taxaCongestionamentoLiquida >= 50 && unidadeJudiciaria.taxaCongestionamentoLiquida < 70,
-              progressBarSuccess: unidadeJudiciaria.taxaCongestionamentoLiquida < 50
-            }"></p-progressBar>
-    </div>
-    <div class="col">
-      <label>Taxa de Congestionamento Total</label>
-      <p-progressBar
-        [value]="unidadeJudiciaria.taxaCongestionamentoTotal"
-        [ngClass]="{
-            progressBarDanger: unidadeJudiciaria.taxaCongestionamentoTotal >= 70,
-            progressBarWarning: unidadeJudiciaria.taxaCongestionamentoTotal >= 50 && unidadeJudiciaria.taxaCongestionamentoTotal < 70,
-            progressBarSuccess: unidadeJudiciaria.taxaCongestionamentoTotal < 50
-          }"></p-progressBar>
-    </div>
-  </div>
+
+  <p class="mb-0"><small><strong>Tipo de Unidade:</strong> {{ unidadeJudiciaria.tipoUnidade.descricao }}</small></p>
+  <p class="mb-0"><small><strong>Classificação:</strong> {{ unidadeJudiciaria.classificacaoUnidade.descricao }}</small>
+  </p>
+
+  <app-resultados-validacoes [unidadeJudiciaria]="unidadeJudiciaria"></app-resultados-validacoes>
 
   <p-footer class="painel-unidade-judiciaria-footer">
     <div class="row justify-content-center">
-      <div class="col-md-3">
-        <button pButton type="button" label="Ver resultados das validações" icon="pi pi-chart-bar"
-                class="btn-block btn-action"></button>
-      </div>
-      <div class="col-md-3">
+      <div class="col-xs-12 col-sm-6 my-2">
         <button pButton type="button" label="Iniciar/agendar validações" icon="pi pi-play"
-                class="btn-block btn-action"></button>
+                class="p-button-raised p-button-sm btn-action" style="width: 100%"
+                (click)="showModalAgendarValidacao = true"></button>
       </div>
-      <div class="col-md-3">
-        <button pButton type="button" label="Detalhar processos da unidade" icon="pi pi-search"
-                class="btn-block btn-action"></button>
+      <div class="col-xs-12 col-sm-6 my-2">
+        <button pButton type="button" label="Detalhar processos" icon="pi pi-search"
+                class="p-button-raised p-button-sm btn-action" style="width: 100%"></button>
       </div>
     </div>
   </p-footer>
 </p-panel>
+
+<p-dialog *ngIf="showModalAgendarValidacao" header="Iniciar/Agendar validações" [(visible)]="showModalAgendarValidacao"
+          [modal]="true" [style]="{width: '480px'}" [baseZIndex]="10" [draggable]="false" [resizable]="false">
+  <app-agendar-validacao [unidadeJudiciaria]="unidadeJudiciaria"></app-agendar-validacao>
+</p-dialog>

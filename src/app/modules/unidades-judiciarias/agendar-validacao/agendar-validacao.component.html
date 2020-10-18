@@ -1,0 +1,31 @@
+<label for="unidadeJudiciariaInput" style="display: block">Unidade Judiciária</label>
+<input id="unidadeJudiciariaInput" style="width: 100%; height: 40px;" type="text" pInputText [disabled]="true"
+       [value]="unidadeJudiciaria | unidadeJudiciaria"/>
+
+<div class="row my-4">
+  <div class="col">
+    <div class="form-check">
+      <input class="form-check-input" type="radio" name="agendarRadio" id="agendar1" [value]="false"
+             [(ngModel)]="agendar" (ngModelChange)="resetDate()">
+      <label class="form-check-label" for="agendar1">Executar agora</label>
+    </div>
+  </div>
+  <div class="col">
+    <div class="form-check">
+      <input class="form-check-input" type="radio" name="agendarRadio" id="agendar2" [value]="true"
+             [(ngModel)]="agendar" (ngModelChange)="resetDate()">
+      <label class="form-check-label" for="agendar2">Agendar execução</label>
+    </div>
+  </div>
+</div>
+
+<div *ngIf="agendar">
+  <label for="dataAgendamentoInput" style="display: block">Executar em:</label>
+  <input id="dataAgendamentoInput" style="width: 100%; height: 40px;" type="datetime-local" pInputText
+         [(ngModel)]="dataAgendamento"/>
+</div>
+
+<hr class="my-4">
+
+<button pButton type="button" label="Confirmar" class="p-button-raised p-button-sm" style="width: 100%"></button>
+

@@ -11,6 +11,8 @@ export class PanelUnidadeJudiciariaComponent implements OnInit {
   @Input()
   unidadeJudiciaria: UnidadeJudiciaria;
 
+  showModalAgendarValidacao = false;
+
   constructor() {
   }
 

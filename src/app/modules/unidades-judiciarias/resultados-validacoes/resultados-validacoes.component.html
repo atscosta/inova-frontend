@@ -1,0 +1,6 @@
+<p><small><strong>Número total de processos: </strong> {{ numTotal }}</small></p>
+
+<p-progressSpinner *ngIf="loading"></p-progressSpinner>
+
+<p-chart [hidden]="loading || numTotal === 0" type="doughnut" [data]="data$ | async"></p-chart>
+<p-chart *ngIf="!loading && numTotal === 0" type="doughnut" [data]="getDataDefault()"></p-chart>

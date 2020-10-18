@@ -1,6 +1,7 @@
 import {Component, EventEmitter, Output} from '@angular/core';
 import {TiposJusticaService} from "../tipos-justica.service";
 import {TipoJustica} from "../tipo-justica";
+import {tap} from "rxjs/operators";
 
 @Component({
   selector: 'app-nav-tipos-justica',
@@ -12,7 +13,10 @@ export class NavTiposJusticaComponent {
   @Output()
   onClick = new EventEmitter<TipoJustica>();
 
-  tiposJustica$ = this.tiposJusticaService.findAll();
+  loading = true;
+
+  tiposJustica$ = this.tiposJusticaService.findAll()
+    .pipe(tap(() => this.loading = false));
 
   constructor(private tiposJusticaService: TiposJusticaService) {
   }

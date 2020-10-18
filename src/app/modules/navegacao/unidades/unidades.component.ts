@@ -21,7 +21,7 @@ export class UnidadesComponent implements OnInit {
 
   numTotal: number;
   currentPage = 0;
-  pageSize = 10;
+  pageSize = 12;
   loading = false;
 
   filtros = {
@@ -32,50 +32,52 @@ export class UnidadesComponent implements OnInit {
   constructor(private route: ActivatedRoute, private unidadesJudiciariasService: UnidadesJudiciariasService) {
   }
 
-  ngOnInit(): void {
-    this.currentPage = 0;
+  ngOnInit(resetPagination: boolean = true): void {
+    this.currentPage = resetPagination ? 0 : this.currentPage;
+    this.numTotal = 0;
+    this.loading = true;
     this.unidadesJudiciarias$ = this.route.params
       .pipe(
         map(params => params['codigoTribunal']),
-        tap(codigoTribunal => {
-          this.codigoTribunal = codigoTribunal;
-          this.loading = true;
-        }),
+        tap(codigoTribunal => this.codigoTribunal = codigoTribunal),
         mergeMap(this.unidadesJudiciariasService.findByCodigoTribunal),
-        tap(unidadesJudiciarias => {
-          this.tiposUnidades = distinct(unidadesJudiciarias.map(uj => uj.tipoUnidade));
-          this.classificacoes = distinct(unidadesJudiciarias.map(uj => uj.classificacaoUnidade));
-        }),
+        tap(this.initTiposUnidadesEClassificacoes),
         map(this.aplicarFiltros),
-        tap(unidadesJudiciarias => {
-          this.numTotal = unidadesJudiciarias.length;
-          this.loading = false;
-        }),
+        tap(this.finalize),
         map(this.paginate),
       );
   }
 
-  private paginate = (unidadesJudiciarias: UnidadeJudiciaria[]) => unidadesJudiciarias
-    .filter((uj, index) => {
-      let firstElement = this.currentPage * this.pageSize;
-      return index >= firstElement && index < (firstElement + this.pageSize);
-    });
+  private initTiposUnidadesEClassificacoes = (unidadesJudiciarias: UnidadeJudiciaria[]) => {
+    this.tiposUnidades = distinct(unidadesJudiciarias.map(uj => uj.tipoUnidade));
+    this.classificacoes = distinct(unidadesJudiciarias.map(uj => uj.classificacaoUnidade));
+  };
+
   private aplicarFiltros = (unidadesJudiciarias: UnidadeJudiciaria[]) => unidadesJudiciarias
     .filter(uj => {
       return (!this.filtros.tipoUnidade || this.filtros.tipoUnidade.codigo === uj.tipoUnidade.codigo) &&
         (!this.filtros.classificacao || this.filtros.classificacao.codigo === uj.classificacaoUnidade.codigo);
     });
 
-  filtroTipoUnidadeChanged($event: any) {
-    this.ngOnInit();
-  }
+  private finalize = (unidadesJudiciarias: UnidadeJudiciaria[]) => {
+    this.numTotal = unidadesJudiciarias.length;
+    this.loading = false;
+  };
 
-  filtroClassificacaoChanged($event: any) {
-    this.ngOnInit();
-  }
+  private paginate = (unidadesJudiciarias: UnidadeJudiciaria[]) => unidadesJudiciarias
+    .filter((uj, index) => {
+      let firstElement = this.currentPage * this.pageSize;
+      return index >= firstElement && index < (firstElement + this.pageSize);
+    });
 
   pageChange(page: number) {
+    console.log('>>> pageChange', page)
     this.currentPage = page;
+    this.ngOnInit(false);
+  }
+
+  filtrosChanged(filtros: any) {
+    this.filtros = filtros;
     this.ngOnInit();
   }
 }

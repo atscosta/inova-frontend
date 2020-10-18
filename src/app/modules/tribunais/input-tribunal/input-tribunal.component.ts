@@ -1,5 +1,5 @@
 import {Component, Input, OnInit} from '@angular/core';
-import {TribunaisService} from "../../../tribunais/tribunais.service";
+import {TribunaisService} from "../tribunais.service";
 import {Observable} from "rxjs";
 import {map} from "rxjs/operators";
 
@@ -20,6 +20,6 @@ export class InputTribunalComponent implements OnInit {
 
   ngOnInit(): void {
     this.nomeTribunal$ = this.tribunaisService.findByCodigo(this.codigoTribunal)
-      .pipe(map(tribunal => tribunal.descricao));
+      .pipe(map(tribunal => tribunal.sigla));
   }
 }
