@@ -1,25 +1,18 @@
-import {Component, OnInit} from '@angular/core';
-import {TipoJustica} from "../../tipos-justica/tipo-justica";
-import {Router} from "@angular/router";
+import {Component} from '@angular/core';
+import {TiposJusticaService} from "../../tipos-justica/tipos-justica.service";
+import {tap} from "rxjs/operators";
 
 @Component({
   selector: 'tipos-justica',
   templateUrl: './tipos-justica.component.html',
   styleUrls: ['./tipos-justica.component.scss']
 })
-export class TiposJusticaComponent implements OnInit {
+export class TiposJusticaComponent {
 
-  breadcrumbItens = [
-    {label: 'Resultados e Estatísticas', link: null},
-  ];
+  loading = true;
+  tiposJustica$ = this.tiposJusticaService.findAll()
+    .pipe(tap(() => this.loading = false));
 
-  constructor(private router: Router) {
-  }
-
-  ngOnInit(): void {
-  }
-
-  onClick(tj: TipoJustica) {
-    this.router.navigate(['/tipos-justica', tj.codigo, 'tribunais']);
+  constructor(private tiposJusticaService: TiposJusticaService) {
   }
 }

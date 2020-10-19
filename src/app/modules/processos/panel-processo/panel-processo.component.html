@@ -1,0 +1,31 @@
+<p-panel class="painel-processo" [header]="processo.npu | npu">
+
+  <p class="mb-0"><small><strong>Classe: </strong>
+    {{ processo.codigoClasse }} - {{ processo.descricaoClasse }}</small></p>
+  <p class="mb-0"><small><strong>Data do Ajuizamento: </strong>
+    {{ (processo.dataDistribuicao | date:'short') || '--' }}</small></p>
+
+  <div class="badges my-4">
+    <span *ngIf="processo.validacoesRealizadas > 0" class="p-tag">Validações executadas</span>
+    <span *ngIf="!processo.validacoesRealizadas" class="p-tag p-tag-danger">Validações não executadas</span>
+  </div>
+
+  <p class="mb-2"><strong>Taxa de sucesso: </strong></p>
+  <p-progressBar *ngIf="processo.validacoesRealizadas > 0" styleClass="sucesso" [value]="processo | sucesso"></p-progressBar>
+  <p-progressBar *ngIf="!processo.validacoesRealizadas" value="0"></p-progressBar>
+
+  <p-footer class="painel-processo-footer">
+    <div class="row justify-content-center">
+      <div class="col-xs-12 col-sm-6 my-2">
+        <button pButton type="button" label="Executar validações" icon="pi pi-play"
+                class="p-button-raised p-button-sm btn-action" style="width: 100%"
+                (click)="executarValidacoes()"></button>
+      </div>
+      <div class="col-xs-12 col-sm-6 my-2">
+        <a pButton type="button" label="Detalhar validações" icon="pi pi-search"
+           class="p-button-raised p-button-sm btn-action" style="width: 100%"></a>
+      </div>
+    </div>
+  </p-footer>
+
+</p-panel>

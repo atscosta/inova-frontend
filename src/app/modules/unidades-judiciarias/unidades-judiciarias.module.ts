@@ -18,6 +18,7 @@ import {DialogModule} from "primeng/dialog";
 import {InputTextModule} from "primeng/inputtext";
 import {CalendarModule} from "primeng/calendar";
 import {ProgressSpinnerModule} from "primeng/progressspinner";
+import {RouterModule} from "@angular/router";
 
 @NgModule({
   declarations: [
@@ -27,21 +28,22 @@ import {ProgressSpinnerModule} from "primeng/progressspinner";
     ResultadosValidacoesComponent,
     AgendarValidacaoComponent
   ],
-  imports: [
-    CommonModule,
-    PanelModule,
-    ProgressBarModule,
-    ButtonModule,
-    TribunaisModule,
-    CardModule,
-    DropdownModule,
-    FormsModule,
-    ChartModule,
-    DialogModule,
-    InputTextModule,
-    CalendarModule,
-    ProgressSpinnerModule
-  ],
+    imports: [
+        CommonModule,
+        PanelModule,
+        ProgressBarModule,
+        ButtonModule,
+        TribunaisModule,
+        CardModule,
+        DropdownModule,
+        FormsModule,
+        ChartModule,
+        DialogModule,
+        InputTextModule,
+        CalendarModule,
+        ProgressSpinnerModule,
+        RouterModule
+    ],
   providers: [
     UnidadesJudiciariasService
   ],
