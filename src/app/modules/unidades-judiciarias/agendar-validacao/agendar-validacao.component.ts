@@ -18,6 +18,7 @@ export class AgendarValidacaoComponent {
 
   agendar = false;
   dataAgendamento: Date;
+  loading = false;
 
   constructor(
     private resultadosService: ResultadosService,
@@ -29,14 +30,14 @@ export class AgendarValidacaoComponent {
   }
 
   executarValidacoes() {
+    this.loading = true;
     this.resultadosService.executarPorUnidadeJudiciaria(this.unidadeJudiciaria)
-      .subscribe(() => {
-        this.messageService.add({
-          severity: 'success',
-          summary: 'Sucesso!',
-          detail: 'As validações da unidade judiciária estão em andamento.'
-        });
-        this.onClose.emit();
-      });
+      .subscribe(() => null);
+    this.messageService.add({
+      severity: 'success',
+      summary: 'Sucesso!',
+      detail: 'As validações da unidade judiciária estão em andamento.'
+    });
+    this.onClose.emit();
   }
 }

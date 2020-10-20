@@ -31,6 +31,8 @@
 
 <hr class="my-4">
 
+<p-progressBar *ngIf="loading" mode="indeterminate" [style]="{'height': '6px'}"></p-progressBar>
+
 <button pButton type="button" label="Confirmar" class="p-button-raised p-button-sm" style="width: 100%"
   (click)="executarValidacoes()"></button>
 

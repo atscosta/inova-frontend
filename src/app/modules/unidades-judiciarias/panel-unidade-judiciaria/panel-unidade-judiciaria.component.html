@@ -4,7 +4,14 @@
   <p class="mb-0"><small><strong>Classificação:</strong> {{ unidadeJudiciaria.classificacaoUnidade.descricao }}</small>
   </p>
 
-  <app-resultados-validacoes [unidadeJudiciaria]="unidadeJudiciaria"></app-resultados-validacoes>
+  <div class="badges my-4">
+    <span *ngIf="execucaoEmAndamento" class="p-tag">Execução em andamento (atualizará a cada 10 segundos)</span>
+  </div>
+
+  <app-resultados-validacoes
+    *ngIf="showResultados"
+    [unidadeJudiciaria]="unidadeJudiciaria"
+    [execucaoEmAndamento]="execucaoEmAndamento"></app-resultados-validacoes>
 
   <p-footer class="painel-unidade-judiciaria-footer">
     <div class="row justify-content-center">
@@ -25,7 +32,7 @@
 <p-dialog *ngIf="showModalAgendarValidacao" header="Iniciar/Agendar validações" [(visible)]="showModalAgendarValidacao"
           [modal]="true" [style]="{width: '480px'}" [baseZIndex]="10" [draggable]="false" [resizable]="false">
   <app-agendar-validacao [unidadeJudiciaria]="unidadeJudiciaria"
-                         (onClose)="showModalAgendarValidacao = false"></app-agendar-validacao>
+                         (onClose)="startExecucaoEmAndamento()"></app-agendar-validacao>
 </p-dialog>
 
 <p-toast></p-toast>
