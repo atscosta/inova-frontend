@@ -17,7 +17,7 @@ export class AppComponent implements OnInit {
   menuItems: MenuItem[] = [
     {label: 'Home', icon: 'pi pi-fw pi-home', routerLink: '/'},
     {label: 'Navegação', icon: 'pi pi-fw pi-sitemap', routerLink: '/tipos-justica'},
-    {label: 'Validações', icon: 'pi pi-fw pi-check-square', routerLink: ''},
+    {label: 'Validações', icon: 'pi pi-fw pi-check-square', routerLink: '/validacoes'},
   ];
 
   constructor(
