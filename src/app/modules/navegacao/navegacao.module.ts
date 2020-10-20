@@ -19,7 +19,10 @@ import {InputTextModule} from "primeng/inputtext";
 import {FormsModule} from "@angular/forms";
 import {DropdownModule} from "primeng/dropdown";
 import {PaginatorModule} from "../paginator/paginator.module";
-import { BreadcrumbNavegacaoComponent } from './breadcrumb-navegacao/breadcrumb-navegacao.component';
+import {BreadcrumbNavegacaoComponent} from './breadcrumb-navegacao/breadcrumb-navegacao.component';
+import {ProcessosComponent} from './processos/processos.component';
+import {ProcessosModule} from "../processos/processos.module";
+import {MessagesModule} from "primeng/messages";
 
 @NgModule({
   declarations: [
@@ -27,7 +30,9 @@ import { BreadcrumbNavegacaoComponent } from './breadcrumb-navegacao/breadcrumb-
     TribunaisComponent,
     UnidadesComponent,
     BreadcrumbNavegacaoComponent,
+    ProcessosComponent,
   ],
+  exports: [],
   imports: [
     CommonModule,
     NavegacaoRoutingModule,
@@ -48,6 +53,7 @@ import { BreadcrumbNavegacaoComponent } from './breadcrumb-navegacao/breadcrumb-
     FormsModule,
     DropdownModule,
     PaginatorModule,
+    ProcessosModule,
   ]
 })
 export class NavegacaoModule {
