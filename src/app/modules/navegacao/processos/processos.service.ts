@@ -20,6 +20,10 @@ export class ProcessosService {
       .pipe(tap(this.ajustarDataAjuizamento));
   }
 
+  countByCodigoUnidadeJudiciaria = codigoUnidadeJudiciaria => {
+    return this.http.get<number>(`${this.apiUrl}/unidades-judiciarias/${codigoUnidadeJudiciaria}/numeroTotalProcessos`);
+  }
+
   findByCodigoUnidadeJudiciaria = (codigoUnidadeJudiciaria, skip = 0, size = 12) => {
     const params = new HttpParams()
       .append('skip', String(skip))
