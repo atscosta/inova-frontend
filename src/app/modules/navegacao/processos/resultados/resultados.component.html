@@ -1,0 +1,73 @@
+<h1><i class="pi pi-check-square"></i> Validações do Processo <strong>{{processo.npu | npu}}</strong></h1>
+<hr>
+
+<app-breadcrumb-navegacao></app-breadcrumb-navegacao>
+
+<p-card id="capa">
+  <div class="row">
+    <div class="col-md-4">
+      <label>Número do Processo:</label>
+      <span>{{processo.npu | npu}}</span>
+    </div>
+    <div class="col-md-4">
+      <label>Classe Processual:</label>
+      <span>[{{processo.codigoClasse}}] {{processo.descricaoClasse}}</span>
+    </div>
+    <div class="col-md-4">
+      <label>Data de Distribução</label>
+      <span>{{processo.dataDistribuicao | date:'short'}}</span>
+    </div>
+  </div>
+</p-card>
+
+<p-accordion id="resultados" [multiple]="true">
+  <p-accordionTab>
+    <ng-template pTemplate="header">
+      <span class="p-badge p-badge-success contador">{{totalSucesso()}}</span>
+      Validações com Sucesso
+    </ng-template>
+    <p-table [value]="validacoesSucesso()" styleClass="p-datatable-striped" tableStyleClass="table-results">
+      <ng-template pTemplate="header">
+        <tr>
+          <th>Descrição</th>
+          <th>Tipo</th>
+        </tr>
+      </ng-template>
+      <ng-template pTemplate="body" let-validation>
+        <tr>
+          <td>{{validation.title}}</td>
+          <td><span class="p-tag p-tag-success">{{validation.type}}</span></td>
+        </tr>
+      </ng-template>
+    </p-table>
+  </p-accordionTab>
+  <p-accordionTab [selected]="true">
+
+    <ng-template pTemplate="header">
+      <span class="p-badge p-badge-danger contador">{{processo.erros}}</span>
+      Inconsistências
+    </ng-template>
+
+    <p-table [value]="validacoesInconsistencias()" styleClass="p-datatable-striped" tableStyleClass="table-results">
+      <ng-template pTemplate="header">
+        <tr>
+          <th>Descrição</th>
+          <th>Mensagem</th>
+          <th>Causado Por</th>
+          <th>Tipo</th>
+        </tr>
+      </ng-template>
+      <ng-template pTemplate="body" let-validation>
+        <tr>
+          <td>{{validation.title}}</td>
+          <td>{{validation.result.message}}</td>
+          <td><p *ngFor="let message of causedBy(validation)">{{message}}</p></td>
+          <td><span class="p-tag p-tag-danger">{{validation.type}}</span></td>
+        </tr>
+      </ng-template>
+    </p-table>
+
+  </p-accordionTab>
+</p-accordion>
+
+<p class="validacoes-count"><strong>{{processo.validacoesRealizadas}} </strong><small>Validações realizadas</small></p>

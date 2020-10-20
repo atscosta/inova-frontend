@@ -1,3 +1,7 @@
+<div class="badges my-4">
+  <span *ngIf="execucaoEmAndamento" class="p-tag">Execução em andamento (atualizará a cada 10 segundos)</span>
+</div>
+
 <p><small><strong>Número total de processos: </strong> {{ numTotal }}</small></p>
 
 <p-progressSpinner *ngIf="loading"></p-progressSpinner>

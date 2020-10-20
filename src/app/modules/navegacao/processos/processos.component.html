@@ -10,3 +10,6 @@
     <app-panel-processo [processo]="proc" (onValidated)="onValidate($event)"></app-panel-processo>
   </div>
 </div>
+
+<app-paginator *ngIf="!loading" [numTotal]="numTotal" [pageSize]="pageSize" [currentPage]="currentPage"
+               (onChange)="pageChange($event)"></app-paginator>

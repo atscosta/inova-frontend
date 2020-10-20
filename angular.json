@@ -222,6 +222,10 @@
           }
         }
       }
-    }},
-  "defaultProject": "cnj-inova"
+    }
+  },
+  "defaultProject": "cnj-inova",
+  "cli": {
+    "analytics": false
+  }
 }

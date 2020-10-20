@@ -4,10 +4,6 @@
   <p class="mb-0"><small><strong>Classificação:</strong> {{ unidadeJudiciaria.classificacaoUnidade.descricao }}</small>
   </p>
 
-  <div class="badges my-4">
-    <span *ngIf="execucaoEmAndamento" class="p-tag">Execução em andamento (atualizará a cada 10 segundos)</span>
-  </div>
-
   <app-resultados-validacoes
     *ngIf="showResultados"
     [unidadeJudiciaria]="unidadeJudiciaria"

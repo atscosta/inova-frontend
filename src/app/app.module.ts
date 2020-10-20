@@ -3,10 +3,8 @@ import {LOCALE_ID, NgModule} from '@angular/core';
 
 import {AppRoutingModule} from './app-routing.module';
 import {AppComponent} from './app.component';
-import {CoreModule} from './core/core.module';
 import {LayoutModule} from './layout/layout.module';
 import {InlineSVGModule} from 'ng-inline-svg';
-import {AuthModule} from './auth/auth.module';
 import {HttpClientModule} from '@angular/common/http';
 import {registerLocaleData} from '@angular/common';
 
@@ -15,17 +13,17 @@ import localePtExtra from '@angular/common/locales/extra/pt';
 import {BreadcrumbModule} from 'primeng/breadcrumb';
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 import {MenubarModule} from 'primeng/menubar';
-import {ChartsModule} from "ng2-charts";
+import {ChartsModule} from 'ng2-charts';
+import { HomeComponent } from './home/home.component';
 
 registerLocaleData(localePt, 'pt-BR', localePtExtra);
 
 @NgModule({
   declarations: [
     AppComponent,
+    HomeComponent,
   ],
   imports: [
-    AuthModule,
-    CoreModule,
     LayoutModule,
     BrowserModule,
     BrowserAnimationsModule,

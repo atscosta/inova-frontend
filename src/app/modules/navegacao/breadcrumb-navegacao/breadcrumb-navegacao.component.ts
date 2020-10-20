@@ -1,11 +1,11 @@
 import {Component, OnInit} from '@angular/core';
-import {ActivatedRoute, Params} from "@angular/router";
+import {ActivatedRoute, Params} from '@angular/router';
 import { toTitleCase } from 'codelyzer/util/utils';
-import {TiposJusticaService} from "../../tipos-justica/tipos-justica.service";
-import {TribunaisService} from "../../tribunais/tribunais.service";
-import {UnidadesJudiciariasService} from "../../unidades-judiciarias/unidades-judiciarias.service";
-import {map, mergeMap} from "rxjs/operators";
-import {forkJoin, Observable} from "rxjs";
+import {TiposJusticaService} from '../../tipos-justica/tipos-justica.service';
+import {TribunaisService} from '../../tribunais/tribunais.service';
+import {UnidadesJudiciariasService} from '../../unidades-judiciarias/unidades-judiciarias.service';
+import {map, mergeMap} from 'rxjs/operators';
+import {forkJoin, Observable} from 'rxjs';
 
 @Component({
   selector: 'app-breadcrumb-navegacao',
@@ -14,7 +14,7 @@ import {forkJoin, Observable} from "rxjs";
 })
 export class BreadcrumbNavegacaoComponent implements OnInit {
 
-  private home = {order: 0, label: "Navegação", link: '/tipos-justica'};
+  private home = {order: 0, label: 'Navegação', link: '/tipos-justica'};
 
   breadcrumbItens$: Observable<any>;
 
@@ -42,16 +42,16 @@ export class BreadcrumbNavegacaoComponent implements OnInit {
       itens[i].link = `${linkAnterior}${linkAtual}`;
     }
     return itens;
-  };
+  }
 
   private mapParams = (params: Params) => {
     const outputArr: Observable<any>[] = [];
-    params['codigoTipoJustica'] && outputArr
-      .push(this.mapParamTipoJustica(params['codigoTipoJustica']));
-    params['codigoTribunal'] && outputArr
-      .push(this.mapParamTribunal(params['codigoTribunal']));
-    params['codigoUnidadeJudiciaria'] && outputArr
-      .push(this.mapParamUnidadeJudiciaria(params['codigoUnidadeJudiciaria']));
+    params.codigoTipoJustica && outputArr
+      .push(this.mapParamTipoJustica(params.codigoTipoJustica));
+    params.codigoTribunal && outputArr
+      .push(this.mapParamTribunal(params.codigoTribunal));
+    params.codigoUnidadeJudiciaria && outputArr
+      .push(this.mapParamUnidadeJudiciaria(params.codigoUnidadeJudiciaria));
     return outputArr;
   }
 
@@ -62,7 +62,7 @@ export class BreadcrumbNavegacaoComponent implements OnInit {
         label: toTitleCase(tipoJustica.descricao),
         link: `/${tipoJustica.codigo}/tribunais`
       })));
-  };
+  }
 
   private mapParamTribunal = codigoTribunal => {
     return this.tribunaisService.findByCodigo(codigoTribunal)
@@ -71,7 +71,7 @@ export class BreadcrumbNavegacaoComponent implements OnInit {
         label: tribunal.sigla,
         link: `/${tribunal.codigo}/unidades`
       })));
-  };
+  }
 
   private mapParamUnidadeJudiciaria = codigoUnidadeJudiciaria => {
     return this.unidadesJudiciariasService.findByCodigo(codigoUnidadeJudiciaria)

@@ -1,6 +1,6 @@
 import {Component, EventEmitter, Input, OnInit, Output} from '@angular/core';
-import {Processo} from "../../navegacao/processos/processo";
-import {ResultadosService} from "../../resultados/resultados.service";
+import {Processo} from '../../navegacao/processos/processo';
+import {ResultadosService} from '../../resultados/resultados.service';
 
 @Component({
   selector: 'app-panel-processo',
