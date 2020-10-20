@@ -71,7 +71,6 @@ export class UnidadesComponent implements OnInit {
     });
 
   pageChange(page: number) {
-    console.log('>>> pageChange', page)
     this.currentPage = page;
     this.ngOnInit(false);
   }

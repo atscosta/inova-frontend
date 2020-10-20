@@ -1,8 +1,8 @@
 import {Injectable} from '@angular/core';
-import {HttpClient, HttpParams} from "@angular/common/http";
-import {environment} from "../../../../environments/environment";
-import {Processo} from "./processo";
-import {tap} from "rxjs/operators";
+import {HttpClient, HttpParams} from '@angular/common/http';
+import {environment} from '../../../../environments/environment';
+import {Processo} from './processo';
+import {tap} from 'rxjs/operators';
 import {Resultado} from './resultados/resultado';
 
 @Injectable({
@@ -23,6 +23,10 @@ export class ProcessosService {
 
   findResultadosById = id => {
     return this.http.get<Resultado>(`${this.apiUrl}/processos/${id}/resultados`);
+  }
+
+  countByCodigoUnidadeJudiciaria = codigoUnidadeJudiciaria => {
+    return this.http.get<number>(`${this.apiUrl}/unidades-judiciarias/${codigoUnidadeJudiciaria}/numeroTotalProcessos`);
   }
 
   findByCodigoUnidadeJudiciaria = (codigoUnidadeJudiciaria, skip = 0, size = 12) => {
