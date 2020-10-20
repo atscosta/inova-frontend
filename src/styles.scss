@@ -1,0 +1,120 @@
+@import url('https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,300i,400,400i,600,600i&display=swap');
+@import "scss/includes";
+@import "scss/bootstrap";
+@import "scss/layout";
+@import "scss/content";
+@import "scss/sidebar";
+@import "scss/custom";
+@import "~@fortawesome/fontawesome-free/css/all.min.css";
+
+li.role a[role=menuitem] {
+  background-color: #e0e0e0 !important;
+  cursor: auto;
+}
+
+.ui-progressbar {
+  height: 4px !important;
+}
+
+.ui-dropdown {
+  width: 100% !important;
+}
+
+.ui-fieldset, .ui-fieldset .ui-fieldset-legend {
+  width: auto !important;
+}
+
+body .pi {
+  font-size: 0.75em !important;
+}
+
+body .p-button,
+body .ui-button,
+body .ui-button-primary {
+  background-color: $sidebar-bg-color !important;
+  border-color: $sidebar-bg-color !important;
+}
+
+body .p-button-secondary,
+body .ui-button-secondary {
+  background-color: $secondary !important;
+  border-color: $secondary !important;
+  color: $light !important;
+}
+
+body .p-button-outlined {
+  background-color: #eee !important;
+  color: $primary !important;
+  border-color: $primary !important;
+}
+
+.special-card {
+  padding: 32px 18px;
+  margin: 9px 16px;
+  background-color: #263238;
+  text-align: center;
+  color: #eceff1;
+  box-shadow: 0 2px 2px 0 rgba(0, 0, 0, 0.14), 0 3px 1px -2px rgba(0, 0, 0, 0.12), 0 1px 5px 0 rgba(0, 0, 0, 0.2);
+  font-size: 20px;
+  cursor: pointer;
+  transition: 0.5s ease;
+}
+
+.special-card:hover {
+  color: white;
+  background-color: #0D2029;
+  transform: scale(1.05);
+  transition: 0.5s ease;
+  font-size: 21px;
+}
+
+.p-panel .p-panel-header {
+  background-color: #cfd8dc !important;
+}
+
+label {
+  font-weight: bold;
+}
+
+.progressBarSuccess .p-progressbar .p-progressbar-value {
+  background: #81c784 !important;
+}
+
+.progressBarWarning .p-progressbar .p-progressbar-value {
+  background: #fff176 !important;
+}
+
+.progressBarDanger .p-progressbar .p-progressbar-value {
+  background: #e57373 !important;
+}
+
+.p-button.btn-action {
+  background-color: #cfd8dc !important;
+  color: $sidebar-bg-color !important;
+  border-color: #cfd8dc !important;
+}
+
+.painel-unidade-judiciaria .p-panel-content {
+  min-height: 424px !important;
+}
+
+.sucesso.p-progressbar .p-progressbar-value {
+  background: #81c784 !important;
+}
+
+.sucesso.p-progressbar {
+  background: #ffb74d !important;
+}
+
+.painel-processo {
+  position: relative;
+}
+
+.painel-processo .painel-processo-overlay {
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: grey;
+  position: absolute;
+}

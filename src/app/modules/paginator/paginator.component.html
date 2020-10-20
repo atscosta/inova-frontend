@@ -1,0 +1,17 @@
+<div class="d-flex justify-content-center">
+  <nav *ngIf="numTotal > pageSize" aria-label="Page navigation example">
+    <ul class="pagination">
+      <li class="page-item" [ngClass]="{disabled: currentPage <= 0}">
+        <button class="page-link" (click)="previous()">Página anterior</button>
+      </li>
+      <li class="page-item disabled">
+      <span class="page-link px-4">
+        Exibindo a página {{ currentPage + 1 }} de {{ getNumPages() }}
+      </span>
+      </li>
+      <li class="page-item" [ngClass]="{disabled: currentPage >= getNumPages() - 1}">
+        <button class="page-link" (click)="next()">Próxima página</button>
+      </li>
+    </ul>
+  </nav>
+</div>

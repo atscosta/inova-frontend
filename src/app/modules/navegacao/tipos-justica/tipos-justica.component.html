@@ -1,0 +1,13 @@
+<h1><i class="pi pi-chart-bar"></i> Tipos de Justiça</h1>
+<hr>
+
+<h2>Escolha o Tipo de Justiça</h2>
+
+<p-progressBar *ngIf="loading" mode="indeterminate" [style]="{'height': '6px'}"></p-progressBar>
+
+<div class="row">
+  <div *ngFor="let tj of tiposJustica$ | async" class="special-card col-sm-12 col-md-6 col-lg-4 col-xl-3"
+       [routerLink]="[tj.codigo, 'tribunais']">
+    {{ tj.descricao }}
+  </div>
+</div>

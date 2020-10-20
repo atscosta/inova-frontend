@@ -1,0 +1,21 @@
+<nav class="main-navigation">
+  <ng-template [ngTemplateOutletContext]="{ $implicit: items, depth: 0, title: '' }" [ngTemplateOutlet]="tplItems">
+  </ng-template>
+</nav>
+
+<ng-template #tplItems let-items let-depth="depth" let-title="title">
+  <div class="menu-wrapper" [class]="'depth-' + depth">
+    <h4 *ngIf="title" class="menu-title">{{ title }}</h4>
+    <ul class="menu">
+      <li *ngFor="let item of items; index as i" class="menu-item" [class.expanded]="item.expanded">
+        <button (click)="itemClick(item, items, $event)" [routerLink]="item.routerLink">
+          <span *ngIf="item.icon" class="menu-item-icon" [class]="item.icon"></span>
+          <span class="menu-item-label">{{ item.label }}</span>
+        </button>
+        <ng-template *ngIf="item.items" [ngTemplateOutlet]="tplItems"
+                     [ngTemplateOutletContext]="{ $implicit: item.items, depth: depth + 1, title: item.label }">
+        </ng-template>
+      </li>
+    </ul>
+  </div>
+</ng-template>

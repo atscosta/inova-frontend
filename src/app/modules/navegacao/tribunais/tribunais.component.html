@@ -1,0 +1,15 @@
+<h1><i class="pi pi-chart-bar"></i> Tribunais</h1>
+<hr>
+
+<app-breadcrumb-navegacao></app-breadcrumb-navegacao>
+
+<h2>Escolha o Tribunal</h2>
+
+<p-progressBar *ngIf="loading" mode="indeterminate" [style]="{'height': '6px'}"></p-progressBar>
+
+<div class="row">
+  <div *ngFor="let trib of tribunais$ | async" class="special-card col-sm-12 col-md-6 col-lg-4 col-xl-3"
+       [routerLink]="[trib.codigo, 'unidades']">
+    {{ trib.sigla }}
+  </div>
+</div>

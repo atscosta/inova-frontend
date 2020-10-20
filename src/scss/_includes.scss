@@ -1,0 +1,18 @@
+//
+// Este arquivo agrupa as definições de variáveis, funções e mixins, tanto os
+// específicos da aplicação quanto os definidos pelo Bootstrap.
+//
+// Os componentes devem importar este arquivo em seus estilos para que possam
+// ter acesso a esses elementos.
+//
+
+// Funções
+@import "~bootstrap/scss/functions";
+
+// Variáveis
+@import "variables";
+@import "~bootstrap/scss/variables";
+
+// Mixins
+@import "mixins";
+@import "~bootstrap/scss/mixins";

@@ -1,0 +1,157 @@
+
+#header {
+  background-color: $sidebar-bg-color;
+  display: flex;
+  align-items: center;
+
+  .sidebar-toggler {
+    align-self: stretch;
+    display: flex;
+    align-items: center;
+    cursor: pointer;
+    padding: 0 12px;
+    border: none;
+    background-color: transparent;
+    color: $sidebar-text-color;
+    &:hover, &:focus {
+      color: $sidebar-hover-color;
+    }
+  }
+
+  .nome-sistema {
+    color: $sidebar-text-color;
+  }
+
+  app-user-info {
+    margin-left: auto;
+
+    .user-info {
+      font-size: .875rem;
+
+      .chamada {
+        height: $topbar-height;
+        padding: 0 1em 0 .5em;
+        color: $sidebar-text-color;
+        display: flex;
+        align-items: center;
+
+        &:hover, &:focus {
+          text-decoration: none;
+        }
+        .foto {
+          display: inline-block;
+          width: 36px;
+          height: 36px;
+          border: 1px solid #ccc;
+          border-radius: 19px;
+          overflow: hidden;
+          vertical-align: middle;
+          background: white;
+          text-align: center;
+          img {
+            width: 30px;
+          }
+        }
+        .login {
+          display: none;
+        }
+        .caret {
+          margin-left: .3em;
+        }
+      }
+    }
+  }
+
+  @include media-breakpoint-up(lg) {
+    app-user-info {
+      margin-right: $grid-gutter-width / 2;
+    }
+  }
+
+}
+
+#main-content {
+
+  .breadcrumb-nav {
+    padding: .75em 0 0;
+    margin: 0 0 .75em;
+
+    .ui-breadcrumb {
+      padding: 0;
+      background-color: transparent;
+      border: none;
+      font-size: .8125rem;
+      line-height: 1.1;
+
+      .ui-menuitem-link {
+        color: $link-color;
+      }
+      .ui-breadcrumb-chevron {
+        font-size: .625rem;
+        padding-top: 2px;
+        margin: 0 0.25em;
+      }
+    }
+  }
+
+  h1.page-title {
+    margin-top: .5em;
+  }
+
+}
+
+#footer {
+  padding-top: 20px;
+  padding-bottom: 20px;
+  font-size: .875rem;
+  color: $text-muted;
+  text-align: center;
+
+  .nome-versao {
+    margin-bottom: .5em;
+  }
+  .creditos {
+    .desenvolvido {
+      display: none;
+    }
+    .logo-ditec {
+      height: 22px;
+    }
+  }
+}
+
+@include media-breakpoint-up(sm) {
+
+  #header {
+    background-color: transparent;
+
+    .sidebar-toggler, .nome-sistema {
+      display: none;
+    }
+
+    app-user-info {
+      .user-info {
+        .chamada {
+          color: $link-color;
+
+          .login {
+            display: inline-block;
+            margin-left: .5em;
+          }
+        }
+      }
+    }
+  }
+
+  #footer {
+    text-align: initial;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    .nome-versao {
+      margin-bottom: 0;
+    }
+  }
+
+}
