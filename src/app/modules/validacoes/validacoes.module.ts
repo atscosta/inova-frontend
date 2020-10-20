@@ -11,7 +11,7 @@ import { ValidacoesRoutingModule } from './validacoes-routing.module';
 import { ValidacoesComponent } from './pages/validacoes.component';
 
 @NgModule({
-    declarations: [ValidacoesComponent],
+  declarations: [ValidacoesComponent],
   imports: [
     CommonModule,
     ValidacoesRoutingModule,
