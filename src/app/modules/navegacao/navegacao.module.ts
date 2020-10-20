@@ -22,6 +22,7 @@ import {PaginatorModule} from "../paginator/paginator.module";
 import {BreadcrumbNavegacaoComponent} from './breadcrumb-navegacao/breadcrumb-navegacao.component';
 import {ProcessosComponent} from './processos/processos.component';
 import {ProcessosModule} from "../processos/processos.module";
+import {MessagesModule} from "primeng/messages";
 
 @NgModule({
   declarations: [

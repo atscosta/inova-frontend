@@ -7,6 +7,6 @@
 
 <div class="row mt-4">
   <div *ngFor="let proc of procesos$ | async" class="col-sm-12 col-md-6 col-lg-4 my-2">
-    <app-panel-processo [processo]="proc"></app-panel-processo>
+    <app-panel-processo [processo]="proc" (onValidated)="onValidate($event)"></app-panel-processo>
   </div>
 </div>

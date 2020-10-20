@@ -24,5 +24,9 @@
 
 <p-dialog *ngIf="showModalAgendarValidacao" header="Iniciar/Agendar validações" [(visible)]="showModalAgendarValidacao"
           [modal]="true" [style]="{width: '480px'}" [baseZIndex]="10" [draggable]="false" [resizable]="false">
-  <app-agendar-validacao [unidadeJudiciaria]="unidadeJudiciaria"></app-agendar-validacao>
+  <app-agendar-validacao [unidadeJudiciaria]="unidadeJudiciaria"
+                         (onClose)="showModalAgendarValidacao = false"></app-agendar-validacao>
 </p-dialog>
+
+<p-toast></p-toast>
+

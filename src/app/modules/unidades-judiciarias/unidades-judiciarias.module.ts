@@ -19,6 +19,8 @@ import {InputTextModule} from "primeng/inputtext";
 import {CalendarModule} from "primeng/calendar";
 import {ProgressSpinnerModule} from "primeng/progressspinner";
 import {RouterModule} from "@angular/router";
+import {ToastModule} from "primeng/toast";
+import {MessageService} from "primeng/api";
 
 @NgModule({
   declarations: [
@@ -28,24 +30,26 @@ import {RouterModule} from "@angular/router";
     ResultadosValidacoesComponent,
     AgendarValidacaoComponent
   ],
-    imports: [
-        CommonModule,
-        PanelModule,
-        ProgressBarModule,
-        ButtonModule,
-        TribunaisModule,
-        CardModule,
-        DropdownModule,
-        FormsModule,
-        ChartModule,
-        DialogModule,
-        InputTextModule,
-        CalendarModule,
-        ProgressSpinnerModule,
-        RouterModule
-    ],
+  imports: [
+    CommonModule,
+    PanelModule,
+    ProgressBarModule,
+    ButtonModule,
+    TribunaisModule,
+    CardModule,
+    DropdownModule,
+    FormsModule,
+    ChartModule,
+    DialogModule,
+    InputTextModule,
+    CalendarModule,
+    ProgressSpinnerModule,
+    RouterModule,
+    ToastModule,
+  ],
   providers: [
-    UnidadesJudiciariasService
+    UnidadesJudiciariasService,
+    MessageService
   ],
   exports: [
     UnidadeJudiciariaPipe,

@@ -6,6 +6,8 @@ import { NpuPipe } from './npu.pipe';
 import {ButtonModule} from "primeng/button";
 import {ProgressBarModule} from "primeng/progressbar";
 import {SucessoPipe} from "./sucesso.pipe";
+import {ResultadosModule} from "../resultados/resultados.module";
+import {ProgressSpinnerModule} from "primeng/progressspinner";
 
 
 
@@ -15,7 +17,9 @@ import {SucessoPipe} from "./sucesso.pipe";
     CommonModule,
     PanelModule,
     ButtonModule,
-    ProgressBarModule
+    ProgressBarModule,
+    ResultadosModule,
+    ProgressSpinnerModule
   ],
   exports: [PanelProcessoComponent]
 })

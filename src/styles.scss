@@ -105,3 +105,16 @@ label {
 .sucesso.p-progressbar {
   background: #ffb74d !important;
 }
+
+.painel-processo {
+  position: relative;
+}
+
+.painel-processo .painel-processo-overlay {
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: grey;
+  position: absolute;
+}

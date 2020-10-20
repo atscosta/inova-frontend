@@ -15,8 +15,13 @@ export class ProcessosService {
     this.apiUrl = environment.apiUrl;
   }
 
+  findById = id => {
+    return this.http.get<Processo>(`${this.apiUrl}/processos/${id}`)
+      .pipe(tap(this.ajustarDataAjuizamento));
+  }
+
   findByCodigoUnidadeJudiciaria = (codigoUnidadeJudiciaria, skip = 0, size = 12) => {
-    let params = new HttpParams()
+    const params = new HttpParams()
       .append('skip', String(skip))
       .append('size', String(size));
     return this.http.get<Processo[]>(`${this.apiUrl}/unidades-judiciarias/${codigoUnidadeJudiciaria}/processos`, {params})

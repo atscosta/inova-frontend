@@ -1,5 +1,7 @@
 <p-panel class="painel-processo" [header]="processo.npu | npu">
 
+  <div class="painel-processo-overlay"></div>
+
   <p class="mb-0"><small><strong>Classe: </strong>
     {{ processo.codigoClasse }} - {{ processo.descricaoClasse }}</small></p>
   <p class="mb-0"><small><strong>Data do Ajuizamento: </strong>
@@ -10,9 +12,13 @@
     <span *ngIf="!processo.validacoesRealizadas" class="p-tag p-tag-danger">Validações não executadas</span>
   </div>
 
-  <p class="mb-2"><strong>Taxa de sucesso: </strong></p>
-  <p-progressBar *ngIf="processo.validacoesRealizadas > 0" styleClass="sucesso" [value]="processo | sucesso"></p-progressBar>
-  <p-progressBar *ngIf="!processo.validacoesRealizadas" value="0"></p-progressBar>
+  <p-progressSpinner *ngIf="loading"></p-progressSpinner>
+
+  <div *ngIf="!loading">
+    <p class="mb-2"><strong>Taxa de sucesso: </strong></p>
+    <p-progressBar *ngIf="processo.validacoesRealizadas > 0" styleClass="sucesso" [value]="processo | sucesso"></p-progressBar>
+    <p-progressBar *ngIf="!processo.validacoesRealizadas" value="0"></p-progressBar>
+  </div>
 
   <p-footer class="painel-processo-footer">
     <div class="row justify-content-center">

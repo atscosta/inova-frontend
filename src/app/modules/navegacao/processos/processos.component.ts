@@ -27,4 +27,8 @@ export class ProcessosComponent implements OnInit {
         tap(() => this.loading = false)
       );
   }
+
+  onValidate(processo: Processo) {
+    this.ngOnInit();
+  }
 }
