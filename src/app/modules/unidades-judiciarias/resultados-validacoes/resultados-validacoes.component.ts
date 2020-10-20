@@ -1,8 +1,8 @@
 import {Component, Input, OnInit} from '@angular/core';
 import {UnidadeJudiciaria} from "../unidade-judiciaria";
 import {ResumoUnidadeJudiciariaService} from "../resumo-unidade-judiciaria.service";
-import {Observable} from "rxjs";
-import {map, tap} from "rxjs/operators";
+import {interval, Observable} from "rxjs";
+import {map, mergeMap, tap} from "rxjs/operators";
 import {ResumoUnidadeJudiciaria} from "../resumo-unidade-judiciaria";
 
 @Component({
@@ -15,6 +15,9 @@ export class ResultadosValidacoesComponent implements OnInit {
   @Input()
   unidadeJudiciaria: UnidadeJudiciaria;
 
+  @Input()
+  execucaoEmAndamento: boolean;
+
   numTotal: number;
   data$: Observable<any>;
 
@@ -25,15 +28,17 @@ export class ResultadosValidacoesComponent implements OnInit {
 
   ngOnInit(): void {
     this.loading = true;
-    this.data$ = this.resumoUnidadeJudiciariaService.findByCodigoUnidadeJudiciaria(this.unidadeJudiciaria.codigo)
-      .pipe(
-        map(this.mapResumo),
-        tap(data => {
-          console.log(`>>> ${this.unidadeJudiciaria.codigo}`, data);
-          this.loading = false;
-        })
-      );
+    this.data$ = this.execucaoEmAndamento ? this.findAndMapLoop() : this.findAndMap();
   }
+
+  private findAndMapLoop = () => interval(10000).pipe(mergeMap(this.findAndMap));
+
+  private findAndMap = () => this.resumoUnidadeJudiciariaService.findByCodigoUnidadeJudiciaria(this.unidadeJudiciaria.codigo)
+    .pipe(
+      tap(resumo => (resumo.countProcessos === resumo.countProcessosValidados) && (this.execucaoEmAndamento = false)),
+      map(this.mapResumo),
+      tap(() => this.loading = false)
+    );
 
   private mapResumo = (resumo: ResumoUnidadeJudiciaria) => {
     this.numTotal = resumo.countProcessos;

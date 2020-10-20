@@ -1,0 +1,12 @@
+<h1><i class="pi pi-chart-bar"></i> Processos</h1>
+<hr>
+
+<app-breadcrumb-navegacao></app-breadcrumb-navegacao>
+
+<p-progressBar *ngIf="loading" mode="indeterminate" [style]="{'height': '6px'}"></p-progressBar>
+
+<div class="row mt-4">
+  <div *ngFor="let proc of procesos$ | async" class="col-sm-12 col-md-6 col-lg-4 my-2">
+    <app-panel-processo [processo]="proc" (onValidated)="onValidate($event)"></app-panel-processo>
+  </div>
+</div>

@@ -12,6 +12,8 @@ export class PanelUnidadeJudiciariaComponent implements OnInit {
   unidadeJudiciaria: UnidadeJudiciaria;
 
   showModalAgendarValidacao = false;
+  execucaoEmAndamento = false;
+  showResultados = true;
 
   constructor() {
   }
@@ -19,4 +21,10 @@ export class PanelUnidadeJudiciariaComponent implements OnInit {
   ngOnInit(): void {
   }
 
+  startExecucaoEmAndamento() {
+    this.showModalAgendarValidacao = false;
+    this.execucaoEmAndamento = true;
+    this.showResultados = false;
+    setTimeout(() => this.showResultados = true, 1000);
+  }
 }

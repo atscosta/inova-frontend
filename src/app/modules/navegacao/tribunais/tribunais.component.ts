@@ -1,8 +1,9 @@
 import {Component, OnInit} from '@angular/core';
 import {Observable} from "rxjs";
-import {ActivatedRoute, Router} from "@angular/router";
-import {map} from "rxjs/operators";
+import {ActivatedRoute} from "@angular/router";
+import {map, mergeMap, tap} from "rxjs/operators";
 import {Tribunal} from "../../tribunais/tribunal";
+import {TribunaisService} from "../../tribunais/tribunais.service";
 
 @Component({
   selector: 'app-resultados-tribunais',
@@ -11,18 +12,19 @@ import {Tribunal} from "../../tribunais/tribunal";
 })
 export class TribunaisComponent implements OnInit {
 
-  codigoTipoJustica$: Observable<string>;
+  loading = false;
+  tribunais$: Observable<Tribunal[]>;
 
-  constructor(private route: ActivatedRoute, private router: Router) {
+  constructor(private route: ActivatedRoute, private tribunaisService: TribunaisService) {
   }
 
   ngOnInit(): void {
-    this.codigoTipoJustica$ = this.route.params
-      .pipe(map(params => params['codigoTipoJustica']));
-  }
-
-  onCLick(trib: Tribunal) {
-    const codigoTipoJustica = this.route.snapshot.paramMap.get('codigoTipoJustica');
-    this.router.navigate(['/tipos-justica', codigoTipoJustica, 'tribunais', trib.codigo, 'unidades']);
+    this.loading = true;
+    this.tribunais$ = this.route.params
+      .pipe(
+        map(params => params['codigoTipoJustica']),
+        mergeMap(this.tribunaisService.findByCodigoJustica),
+        tap(() => this.loading = false)
+      );
   }
 }
