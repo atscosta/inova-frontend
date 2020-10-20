@@ -1,9 +1,9 @@
 import {Injectable} from '@angular/core';
-import {HttpClient} from "@angular/common/http";
-import {environment} from "../../../environments/environment";
-import {Processo} from "../navegacao/processos/processo";
-import {UnidadeJudiciaria} from "../unidades-judiciarias/unidade-judiciaria";
-import {take} from "rxjs/operators";
+import {HttpClient} from '@angular/common/http';
+import {environment} from '../../../environments/environment';
+import {Processo} from '../navegacao/processos/processo';
+import {UnidadeJudiciaria} from '../unidades-judiciarias/unidade-judiciaria';
+import {take} from 'rxjs/operators';
 
 @Injectable({
   providedIn: 'root'

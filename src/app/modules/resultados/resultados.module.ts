@@ -1,6 +1,6 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import {ResultadosService} from "./resultados.service";
+import {ResultadosService} from './resultados.service';
 
 
 
