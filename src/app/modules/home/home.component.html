@@ -6,30 +6,67 @@
   <div class="card-body">
     <h3 class="card-title">Nossa solução</h3>
     <p>
-      O <em>CNJ INOVA</em> é um ciclo de inovação colaborativa.
-      O Conselho Nacional de Justiça (CNJ) convida os profissionais de áreas multidisciplinares para que desenvolvam soluções inovadoras, descentralizadas e disruptivas que beneficiarão toda a sociedade.
+      Nosso projeto se baseia em uma <strong>coleção gerenciável de validadores</strong> que é executada
+      para cada processo remetido ao Datajud. Classificamos nossos validadores em seis tipos:
+      <em>Assuntos, Classes, Movimentos, Unidades Judiciárias, Campos Obrigatórios e Outros.</em>
     </p>
 
-    <h5 class="card-title"># Funcionalidades</h5>
     <p>
-      O <em>CNJ INOVA</em> é um ciclo de inovação colaborativa.
-      O Conselho Nacional de Justiça (CNJ) convida os profissionais de áreas multidisciplinares para que desenvolvam soluções inovadoras, descentralizadas e disruptivas que beneficiarão toda a sociedade.
+      <strong>A navegação pela aplicação é simples e amigável</strong>.
+      Organizamos uma estrutura hierárquica de justiça, iniciando
+      pelo Tipo de Justiça, em seguida o Tribunal e, por último, a Unidade Judiciária. Neste último nível, ainda
+      oferemos os filtros por Tribunal, Tipo Unidade e Classificação. Logo abaixo, são exibidas as informações de
+      processos de cada Unidade.
+    </p>
+
+    <p>
+      Finalmente, podemos acionar o início do processamento de validações ou detalhar os processos.
+      As validações acontecem através de <strong>processamento paralelo e assíncrono</strong>, assim,
+      exibimos <strong>em tempo real o progresso e a taxa de sucesso.</strong>
+      Toda essa informação, consolidada de milhares de processos, é
+      <strong>exibida de forma muito eficiente em gráficos</strong> que permitem a
+      fácil leitura e organização de ações e mutirões para saneamento dos dados.
+    </p>
+
+    <h4 class="card-title"># Funcionalidades</h4>
+    <p>
+      Esta primeira versão da aplicação conta com 20 validadores já implementados e permite o fácil gerenciamento de
+      "liga/desliga". No entanto, já identificamos e estamos planejando outras funcionalidades que podem ser
+      facilmente adicionadas.
     </p>
 
     <strong>## Disponíveis</strong>
     <ul>
-      <li>Validação de processos por Unidade Judiciária</li>
+      <li>20 validadores implementados nas seguintes categorias: Assuntos, Classes, Movimentos, Unidades
+        Judiciárias e Campos Obrigatórios</li>
+      <li>Descrição e gerenciamento de "liga/desliga" de cada validador</li>
+      <li>Execução das validações de processos por Unidade Judiciária ou Processo inidividual</li>
+      <li>Acompanhamento em tempo real do andamento do processamento</li>
+      <li>Detalhamento dos resultados para cada processo</li>
     </ul>
 
     <strong>## Em planejamento</strong>
     <ul>
       <li>Agendamento para execução de validação</li>
+      <li>Endpoint público de validação processual para acesso pelos tribunais</li>
+      <li>Execução e visualização das validações para todas as unidades de um tribunal</li>
     </ul>
 
-    <h5 class="card-title"># Arquitetura</h5>
+    <h4 class="card-title"># Arquitetura</h4>
     <p>
-      O <em>CNJ INOVA</em> é um ciclo de inovação colaborativa.
-      O Conselho Nacional de Justiça (CNJ) convida os profissionais de áreas multidisciplinares para que desenvolvam soluções inovadoras, descentralizadas e disruptivas que beneficiarão toda a sociedade.
+      A aplicação foi construída no modelo <em>backend + frontend</em>. No <em>backend</em>, usamos
+      <stron>Java 11</stron> e o framework <strong>Spring Boot</strong>,
+      habilitando o Spring Webflux para uso do paradigma reativo. As validações são
+      registradas em tempo de execução através do processamento da anotação <code>@Validator</code>.
+      Cada validação é executada de forma paralela e assíncrona, definindo uma janela de até 10 <em>threads</em>.
+    </p>
+    <p>
+      No <em>frontend</em>, utilizamos <strong>Angular v10</strong>, com os frameworks Prime NG, Bootstrap e RxJS
+      para as chamadas reativas.
+    </p>
+    <p>
+      Além da aplicação, usamos um banco de dados <strong>Mongo DB</strong> que, além de ser orientado a documentos,
+      isto é, <em>NoSQL</em>, oferece suporte à programação reativa na camada de acesso a dados.
     </p>
   </div>
 </div>
