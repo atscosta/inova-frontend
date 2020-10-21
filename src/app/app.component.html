@@ -23,7 +23,7 @@
 
         <ul class="navbar-nav mr-auto">
           <li class="nav-item">
-            <button class="nav-link bg-transparent border-0" (click)="helpDIalog = true">
+            <button class="nav-link bg-transparent border-0" (click)="helpDialog = true">
               <i class="fa fa-book mx-2" aria-hidden="true"></i> Documentação</button>
           </li>
           <li class="nav-item dropdown">
@@ -42,13 +42,13 @@
       <router-outlet></router-outlet>
     </main>
 
-    <p-dialog header="Ajuda" [(visible)]="helpDIalog" [style]="{width: '50vw'}" [baseZIndex]="10000">
+    <p-dialog header="Ajuda" [(visible)]="helpDialog" [style]="{width: '50vw'}" [baseZIndex]="10000">
       <div class="row justify-content-center">
         <iframe width="800px" height="480px" style="border: 1px solid #e6e6e6;"
                 src="https://docs.google.com/document/d/e/2PACX-1vSSKm1lRoDi2xBUiEwJn3TQpAf5-CHD_GPVQoKU9Xmf6VB0XEKobESMu55JSUsGJVo5GKWseh-OEUOU/pub?embedded=true"></iframe>
       </div>
       <ng-template pTemplate="footer">
-        <button type="button" class="btn btn-outline-dark" (click)="helpDIalog=false">Fechar</button>
+        <button type="button" class="btn btn-outline-dark" (click)="helpDialog=false">Fechar</button>
       </ng-template>
     </p-dialog>
 

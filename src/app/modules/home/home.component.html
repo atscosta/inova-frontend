@@ -6,77 +6,35 @@
   <div class="card-body">
     <h1 class="card-title">Nossa solução</h1>
     <p>
-      Nosso projeto se baseia em uma <strong>coleção gerenciável de validadores</strong> que é executada
-      para cada processo remetido ao Datajud. Classificamos nossos validadores em seis tipos:
-      <em>Assuntos, Classes, Movimentos, Unidades Judiciárias, Campos Obrigatórios e Outros.</em>
+      A fim de resolver o problema do Datajud em sanitizar os dados processuais enviados por cada tribunal,
+      nosso projeto se baseia em uma <strong>coleção gerenciável de validadores</strong> que é executada para cada
+      processo remetido ao Datajud. As validações acontecem através de <strong>processamento paralelo e
+      assíncrono</strong>. Os resultados podem ser acompanhados <strong>em tempo real o progresso e a taxa de
+      sucesso.</strong>
     </p>
 
     <p>
-      <strong>A navegação pela aplicação é simples e amigável</strong>.
-      Organizamos uma estrutura hierárquica de justiça, iniciando
-      pelo Tipo de Justiça, em seguida o Tribunal e, por último, a Unidade Judiciária. Neste último nível, ainda
-      oferecemos os filtros por Tribunal, Tipo Unidade e Classificação. Logo abaixo, são exibidas as informações de
-      processos de cada Unidade.
-    </p>
-
-    <p>
-      Finalmente, podemos acionar o início do processamento de validações ou detalhar os processos.
-      As validações acontecem através de <strong>processamento paralelo e assíncrono</strong>, assim,
-      exibimos <strong>em tempo real o progresso e a taxa de sucesso.</strong>
-      Toda essa informação, consolidada de milhares de processos, é
-      <strong>exibida de forma muito eficiente em gráficos</strong> que permitem a
-      fácil leitura e organização de ações e mutirões para saneamento dos dados.
+      Toda essa informação, consolidada de milhares de processos, é <strong>exibida de forma muito eficiente em
+      gráficos</strong> que permitem a fácil leitura e organização de ações e mutirões para saneamento dos dados.
+      <strong>A navegação pela aplicação é simples e amigável</strong>. Organizamos uma estrutura hierárquica de
+      justiça, iniciando pelo Tipo de Justiça, em seguida o Tribunal e, por último, a Unidade Judiciária.
     </p>
 
     <h3 class="card-title">Funcionalidades</h3>
     <p>
-      Esta primeira versão da aplicação conta com 20 validadores já implementados e permite o fácil gerenciamento de
-      "liga/desliga". No entanto, já identificamos e estamos planejando outras funcionalidades que podem ser
-      facilmente adicionadas.
+      Esta primeira versão da aplicação <strong>é totalmente funcional</strong>. Nela você encontra:
     </p>
-
-    <h4>Disponíveis</h4>
     <ul>
       <li>20 validadores implementados nas seguintes categorias: Assuntos, Classes, Movimentos, Unidades
         Judiciárias e Campos Obrigatórios</li>
-      <li>Descrição e gerenciamento de "liga/desliga" de cada validador</li>
       <li>Execução das validações de processos por Unidade Judiciária ou Processo individual</li>
-      <li>Acompanhamento em tempo real do andamento do processamento</li>
       <li>Detalhamento dos resultados para cada processo</li>
     </ul>
 
-    <h4>Em planejamento</h4>
-    <ul>
-      <li>Agendamento para execução de validação</li>
-      <li>Endpoint público de validação processual para acesso pelos tribunais</li>
-      <li>Execução e visualização das validações para todas as unidades de um tribunal</li>
-    </ul>
-
-    <h3 class="card-title">Arquitetura</h3>
-    <p>
-      A aplicação foi construída no modelo <em>backend + frontend</em>. No <em>backend</em>, usamos
-      <strong>Java 11</strong> e o framework <strong>Spring Boot</strong>,
-      habilitando o Spring Webflux para uso do paradigma reativo. As validações são
-      registradas em tempo de execução através do processamento da anotação <code>@Validator</code>.
-      Cada validação é executada de forma paralela e assíncrona, definindo uma janela de até 10 <em>threads</em>.
-    </p>
-    <p>
-      No <em>frontend</em>, utilizamos <strong>Angular v10</strong>, com os frameworks Prime NG, Bootstrap e RxJS
-      para as chamadas reativas.
-    </p>
-    <p>
-      Além da aplicação, usamos um banco de dados <strong>Mongo DB</strong> que, além de ser orientado a documentos,
-      isto é, <em>NoSQL</em>, oferece suporte à programação reativa na camada de acesso a dados.
-    </p>
-
-    <h3 class="card-title">Preparação dos dados</h3>
-    <p>
-      Além da amostra de dados processuais fornecida pelo CNJ para este Desafio, utilizamos como fonte de dados
-      as tabelas disponibilizadas pelo <strong>Sistema de Gestão de Tabelas Processuais Unificadas</strong> (SGT) e
-      do <strong>Painel de Produtividade Mensal</strong> - Módulo de Produtividade Mensal do Sistema de Estatísticas
-      do Poder Judiciário (SIESPJ).
-    </p>
-
+    <p><em>Para mais detalhes, acesse nossa
+      <i class="fa fa-book mx-2" aria-hidden="true"></i>
+      <a (click)="helpDialog = true" style="cursor:pointer; text-decoration: underline">Documentação</a>.
+    </em></p>
   </div>
 </div>
 
@@ -94,3 +52,15 @@
     </p>
   </div>
 </div>
+
+
+<p-dialog header="Ajuda" [(visible)]="helpDialog" [style]="{width: '50vw'}" [baseZIndex]="10000">
+  <div class="row justify-content-center">
+    <iframe width="800px" height="480px" style="border: 1px solid #e6e6e6;"
+            src="https://docs.google.com/document/d/e/2PACX-1vSSKm1lRoDi2xBUiEwJn3TQpAf5-CHD_GPVQoKU9Xmf6VB0XEKobESMu55JSUsGJVo5GKWseh-OEUOU/pub?embedded=true"></iframe>
+  </div>
+  <ng-template pTemplate="footer">
+    <button type="button" class="btn btn-outline-dark" (click)="helpDialog=false">Fechar</button>
+  </ng-template>
+</p-dialog>
+

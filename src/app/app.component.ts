@@ -14,7 +14,7 @@ export class AppComponent implements OnInit {
   title = 'CNJ Inova';
   version = '1.0.0';
   sidebarOpen = true;
-  helpDIalog = false;
+  helpDialog = false;
   githubOpen = false;
   menuItems: MenuItem[] = [
     {label: 'Home', icon: 'pi pi-fw pi-home', routerLink: '/'},
