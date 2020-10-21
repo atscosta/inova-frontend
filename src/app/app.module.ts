@@ -23,7 +23,6 @@ registerLocaleData(localePt, 'pt-BR', localePtExtra);
 @NgModule({
   declarations: [
     AppComponent,
-    HomeComponent,
   ],
   imports: [
     LayoutModule,

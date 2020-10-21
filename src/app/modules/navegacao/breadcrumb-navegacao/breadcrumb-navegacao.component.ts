@@ -13,7 +13,7 @@ import {forkJoin, Observable} from 'rxjs';
 })
 export class BreadcrumbNavegacaoComponent implements OnInit {
 
-  private home = {order: 0, label: 'Navegação', link: '/tipos-justica'};
+  private home = {order: 0, label: 'NAVEGAÇÃO', link: '/tipos-justica'};
 
   breadcrumbItens$: Observable<any>;
 
