@@ -14,14 +14,12 @@ import {BreadcrumbModule} from 'primeng/breadcrumb';
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 import {MenubarModule} from 'primeng/menubar';
 import {ChartsModule} from 'ng2-charts';
-import { HomeComponent } from './home/home.component';
 
 registerLocaleData(localePt, 'pt-BR', localePtExtra);
 
 @NgModule({
   declarations: [
     AppComponent,
-    HomeComponent,
   ],
   imports: [
     LayoutModule,
