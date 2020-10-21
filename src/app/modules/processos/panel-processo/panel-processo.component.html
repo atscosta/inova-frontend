@@ -30,9 +30,10 @@
       <div class="col-xs-12 col-sm-6 my-2">
         <a pButton type="button" label="Detalhar validações" icon="pi pi-search"
            class="p-button-raised p-button-sm btn-action" style="width: 100%"
-         [routerLink]="[processo.id, 'validacoes']"></a>
+         [routerLink]="[processo.id, 'validacoes']" *ngIf="processo.validacoesRealizadas > 0"></a>
       </div>
     </div>
   </p-footer>
 
 </p-panel>
+e
