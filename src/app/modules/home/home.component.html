@@ -1,0 +1,66 @@
+<div class="text-center" style="margin-top: -50px;">
+  <img src="assets/img/validador.svg" alt="Dajud logo valida" class="img-fluid">
+</div>
+
+<div class="card">
+  <div class="card-body">
+    <h1 class="card-title">Nossa solução</h1>
+    <p>
+      A fim de resolver o problema do Datajud em sanitizar os dados processuais enviados por cada tribunal,
+      nosso projeto se baseia em uma <strong>coleção gerenciável de validadores</strong> que é executada para cada
+      processo remetido ao Datajud. As validações acontecem através de <strong>processamento paralelo e
+      assíncrono</strong>. Os resultados podem ser acompanhados <strong>em tempo real o progresso e a taxa de
+      sucesso.</strong>
+    </p>
+
+    <p>
+      Toda essa informação, consolidada de milhares de processos, é <strong>exibida de forma muito eficiente em
+      gráficos</strong> que permitem a fácil leitura e organização de ações e mutirões para saneamento dos dados.
+      <strong>A navegação pela aplicação é simples e amigável</strong>. Organizamos uma estrutura hierárquica de
+      justiça, iniciando pelo Tipo de Justiça, em seguida o Tribunal e, por último, a Unidade Judiciária.
+    </p>
+
+    <h3 class="card-title">Funcionalidades</h3>
+    <p>
+      Esta primeira versão da aplicação <strong>é totalmente funcional</strong>. Nela você encontra:
+    </p>
+    <ul>
+      <li>20 validadores implementados nas seguintes categorias: Assuntos, Classes, Movimentos, Unidades
+        Judiciárias e Campos Obrigatórios</li>
+      <li>Execução das validações de processos por Unidade Judiciária ou Processo individual</li>
+      <li>Detalhamento dos resultados para cada processo</li>
+    </ul>
+
+    <p><em>Para mais detalhes, acesse nossa
+      <i class="fa fa-book mx-2" aria-hidden="true"></i>
+      <a (click)="helpDialog = true" style="cursor:pointer; text-decoration: underline">Documentação</a>.
+    </em></p>
+  </div>
+</div>
+
+<div class="card">
+  <div class="card-body">
+    <h1 class="card-title">CNJ Inova ::: Desafio 2</h1>
+    <p>
+      O <em>CNJ INOVA</em> é um ciclo de inovação colaborativa.
+      O Conselho Nacional de Justiça (CNJ) convida os profissionais de áreas multidisciplinares para que desenvolvam soluções inovadoras, descentralizadas e disruptivas que beneficiarão toda a sociedade.
+    </p>
+    <p class="card-text">
+      <span><em>DESAFIO 2 - INCONSISTÊNCIAS DE DADOS NOS SISTEMAS DOS TRIBUNAIS</em></span><br>
+      Como podemos identificar e corrigir na base do DataJud as inconsistências nos metadados dos processos em
+      tramitação nos sistemas dos tribunais? <em>#saneamento</em>
+    </p>
+  </div>
+</div>
+
+
+<p-dialog header="Ajuda" [(visible)]="helpDialog" [style]="{width: '50vw'}" [baseZIndex]="10000">
+  <div class="row justify-content-center">
+    <iframe width="800px" height="480px" style="border: 1px solid #e6e6e6;"
+            src="https://docs.google.com/document/d/e/2PACX-1vSSKm1lRoDi2xBUiEwJn3TQpAf5-CHD_GPVQoKU9Xmf6VB0XEKobESMu55JSUsGJVo5GKWseh-OEUOU/pub?embedded=true"></iframe>
+  </div>
+  <ng-template pTemplate="footer">
+    <button type="button" class="btn btn-outline-dark" (click)="helpDialog=false">Fechar</button>
+  </ng-template>
+</p-dialog>
+

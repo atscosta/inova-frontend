@@ -25,6 +25,8 @@ import {ProcessosModule} from '../processos/processos.module';
 import {ResultadosComponent} from './processos/resultados/resultados.component';
 import {AccordionModule} from 'primeng/accordion';
 import {TableModule} from 'primeng/table';
+import {ValidacoesModule} from "../validacoes/validacoes.module";
+import {TipoValidacaoModule} from "../tipo-validacao/tipo-validacao.module";
 
 @NgModule({
   declarations: [
@@ -59,6 +61,8 @@ import {TableModule} from 'primeng/table';
     PaginatorModule,
     ProcessosModule,
     TableModule,
+    ValidacoesModule,
+    TipoValidacaoModule,
   ]
 })
 export class NavegacaoModule {

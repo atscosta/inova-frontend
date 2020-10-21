@@ -1,4 +1,4 @@
 export const environment = {
-  production: false,
-  apiUrl: 'http://localhost:8080/cnj-inova',
+  production: true,
+  apiUrl: 'http://157.230.223.248:8080',
 };
