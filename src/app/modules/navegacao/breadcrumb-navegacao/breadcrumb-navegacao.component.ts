@@ -1,6 +1,5 @@
 import {Component, OnInit} from '@angular/core';
 import {ActivatedRoute, Params} from '@angular/router';
-import { toTitleCase } from 'codelyzer/util/utils';
 import {TiposJusticaService} from '../../tipos-justica/tipos-justica.service';
 import {TribunaisService} from '../../tribunais/tribunais.service';
 import {UnidadesJudiciariasService} from '../../unidades-judiciarias/unidades-judiciarias.service';
@@ -59,7 +58,7 @@ export class BreadcrumbNavegacaoComponent implements OnInit {
     return this.tiposJusticaService.findByCodigo(codigoTipoJustica)
       .pipe(map(tipoJustica => ({
         order: 1,
-        label: toTitleCase(tipoJustica.descricao),
+        label: tipoJustica.descricao,
         link: `/${tipoJustica.codigo}/tribunais`
       })));
   }
