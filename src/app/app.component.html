@@ -9,8 +9,8 @@
     </div>
     <div class="branding">
       <div class="logo">
-        <img *ngIf="sidebarOpen" src="/assets/img/cnj-inova.png" width="100%" alt="logo" />
-        <img *ngIf="!sidebarOpen" src="/assets/img/cnj-inova-sq.png" width="100%" alt="logo" />
+        <img *ngIf="sidebarOpen" src="/assets/img/cnj-inova.png" width="100%" alt="logo"/>
+        <img *ngIf="!sidebarOpen" src="/assets/img/cnj-inova-sq.png" width="100%" alt="logo"/>
       </div>
     </div>
     <app-main-menu [sidebarOpen]="sidebarOpen" [items]="menuItems"></app-main-menu>
@@ -20,16 +20,37 @@
 
     <header id="header" class="navbar navbar-dark bg-dark">
       <div class="navbar-expand" id="navbarNavAltMarkup">
-        <div class="navbar-nav">
-          <a class="nav-link" href="#"><i class="fa fa-info-circle" aria-hidden="true"></i>&nbsp;&nbsp;Ajuda</a>
-          <a class="nav-link" href="#"><i class="fa fa-cog" aria-hidden="true"></i>&nbsp;&nbsp;Configurações</a>
-        </div>
+
+        <ul class="navbar-nav mr-auto">
+          <li class="nav-item">
+            <button class="nav-link bg-transparent border-0" (click)="helpDIalog = true">
+              <i class="fa fa-book mx-2" aria-hidden="true"></i> Documentação</button>
+          </li>
+          <li class="nav-item dropdown">
+            <button class="nav-link bg-transparent border-0" (click)="githubOpen = !githubOpen">
+              <i class="fa fa-code mx-2" aria-hidden="true"></i> Github</button>
+            <div class="dropdown-menu" [ngClass]="{'show': githubOpen}" aria-labelledby="dropdown01">
+              <a class="dropdown-item" target="_blank" href="https://github.com/atscosta/inova-frontend">Frontend</a>
+              <a class="dropdown-item" target="_blank" href="https://github.com/atscosta/inova-backend">Backend</a>
+            </div>
+          </li>
+        </ul>
       </div>
     </header>
 
     <main id="main-content" role="main" class="container-fluid">
       <router-outlet></router-outlet>
     </main>
+
+    <p-dialog header="Ajuda" [(visible)]="helpDIalog" [style]="{width: '50vw'}" [baseZIndex]="10000">
+      <div class="row justify-content-center">
+        <iframe width="800px" height="480px" style="border: 1px solid #e6e6e6;"
+                src="https://docs.google.com/document/d/e/2PACX-1vSSKm1lRoDi2xBUiEwJn3TQpAf5-CHD_GPVQoKU9Xmf6VB0XEKobESMu55JSUsGJVo5GKWseh-OEUOU/pub?embedded=true"></iframe>
+      </div>
+      <ng-template pTemplate="footer">
+        <button type="button" class="btn btn-outline-dark" (click)="helpDIalog=false">Fechar</button>
+      </ng-template>
+    </p-dialog>
 
     <footer id="footer" class="container-fluid">
       <div class="nome-versao">
